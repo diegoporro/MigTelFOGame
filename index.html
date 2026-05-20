@@ -23,27 +23,21 @@
             width: 6px;
         }
         ::-webkit-scrollbar-track {
-            background: rgba(15, 23, 42, 0.05);
+            background: rgba(0, 168, 232, 0.05);
         }
         .dark ::-webkit-scrollbar-track {
-            background: #0f172a;
+            background: #091a2f;
         }
         ::-webkit-scrollbar-thumb {
-            background: rgba(30, 41, 59, 0.2);
+            background: rgba(0, 168, 232, 0.2);
             border-radius: 3px;
         }
         .dark ::-webkit-scrollbar-thumb {
-            background: #1e293b;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: rgba(51, 65, 85, 0.4);
-        }
-        .dark ::-webkit-scrollbar-thumb:hover {
-            background: #334155;
+            background: #007cc0;
         }
         /* Canvas glowing line */
         .glowing-laser {
-            filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.8));
+            filter: drop-shadow(0 0 8px rgba(0, 168, 232, 0.8));
         }
         .success-laser {
             filter: drop-shadow(0 0 12px rgba(16, 185, 129, 0.9));
@@ -58,25 +52,25 @@
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between bg-slate-50 text-slate-900 transition-colors duration-300" id="body-theme">
+<body class="min-h-screen flex flex-col justify-between bg-[#f0f9ff] text-slate-900 transition-colors duration-300" id="body-theme">
 
     <!-- HEADER / BARRA DE NAVEGACIÓN -->
-    <header class="border-b border-slate-200 dark:border-slate-800 bg-white/85 dark:bg-slate-900/80 backdrop-blur-md sticky top-0 z-40 px-4 py-3 shadow-sm transition-colors duration-300">
+    <header class="border-b border-sky-100 dark:border-sky-950 bg-white/90 dark:bg-[#07162c]/90 backdrop-blur-md sticky top-0 z-40 px-4 py-3 shadow-sm transition-colors duration-300">
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-3">
             <div class="flex items-center gap-3 w-full md:w-auto justify-between md:justify-start">
                 <div class="flex items-center gap-3">
-                    <div class="bg-indigo-600 text-white p-2 rounded-xl shadow-lg shadow-indigo-500/30">
+                    <div class="bg-[#00a8e8] text-white p-2 rounded-xl shadow-lg shadow-sky-500/20">
                         <i data-lucide="zap" class="w-6 h-6 text-yellow-300"></i>
                     </div>
                     <div>
-                        <h1 class="text-xl font-bold tracking-tight header-font text-slate-900 dark:text-white flex items-center gap-2">
-                            MIGTEL <span class="text-xs bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 px-2.5 py-0.5 rounded-full border border-indigo-500/30 font-semibold">FIBRA MASTER v2.0</span>
+                        <h1 class="text-xl font-bold tracking-tight header-font text-[#0056b3] dark:text-[#00a8e8] flex items-center gap-2">
+                            MigTel <span class="text-xs bg-sky-150/10 text-[#007cc0] dark:text-sky-300 px-2.5 py-0.5 rounded-full border border-sky-450/35 font-semibold">FIBRA MASTER v2.0</span>
                         </h1>
-                        <p class="text-xs text-slate-500 dark:text-slate-400">Entrenamiento interactivo en redes ópticas</p>
+                        <p class="text-xs text-sky-600 dark:text-sky-400">Entrenamiento interactivo en redes ópticas</p>
                     </div>
                 </div>
                 <!-- Botón de Tema para Mobile -->
-                <button onclick="toggleTheme()" class="md:hidden p-2 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                <button onclick="toggleTheme()" class="md:hidden p-2 rounded-xl border border-sky-200 dark:border-sky-900 text-sky-650 dark:text-sky-300 hover:bg-sky-100 dark:hover:bg-[#0c2443] transition-colors">
                     <i data-lucide="sun" class="w-5 h-5 dark:hidden"></i>
                     <i data-lucide="moon" class="w-5 h-5 hidden dark:block text-yellow-300"></i>
                 </button>
@@ -86,17 +80,17 @@
             <div class="flex items-center justify-between md:justify-end gap-4 w-full md:w-auto">
                 <div class="flex items-center gap-4">
                     <div class="flex items-center gap-2">
-                        <span class="text-[10px] md:text-xs text-slate-500 dark:text-slate-400 uppercase tracking-wider font-bold">Nivel:</span>
-                        <span id="level-display" class="font-bold text-indigo-600 dark:text-indigo-400 text-xs md:text-sm bg-indigo-50 dark:bg-indigo-950/50 border border-indigo-200 dark:border-indigo-900/50 px-2.5 py-1 rounded-md">1. Cliente Residencial</span>
+                        <span class="text-[10px] md:text-xs text-sky-650 dark:text-sky-400 uppercase tracking-wider font-bold">Nivel:</span>
+                        <span id="level-display" class="font-bold text-[#0056b3] dark:text-sky-300 text-xs md:text-sm bg-sky-50 dark:bg-[#0c2443] border border-sky-200 dark:border-sky-900 px-2.5 py-1 rounded-md">1. Cliente Residencial</span>
                     </div>
                     <div class="flex items-center gap-2">
-                        <span class="text-[10px] md:text-xs text-slate-500 dark:text-slate-400 uppercase tracking-wider font-bold">Puntos:</span>
-                        <span id="score-display" class="font-bold text-emerald-600 dark:text-emerald-400 text-xs md:text-sm bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-900/50 px-2.5 py-1 rounded-md">0 pts</span>
+                        <span class="text-[10px] md:text-xs text-sky-650 dark:text-sky-400 uppercase tracking-wider font-bold">Puntos:</span>
+                        <span id="score-display" class="font-bold text-emerald-600 dark:text-emerald-400 text-xs md:text-sm bg-emerald-50 dark:bg-[#082a1d] border border-emerald-200 dark:border-emerald-900 px-2.5 py-1 rounded-md">0 pts</span>
                     </div>
                 </div>
 
                 <!-- Botón de Tema Desktop -->
-                <button onclick="toggleTheme()" class="hidden md:flex p-2 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" title="Cambiar Modo de Color">
+                <button onclick="toggleTheme()" class="hidden md:flex p-2 rounded-xl border border-sky-200 dark:border-sky-900 text-sky-600 dark:text-sky-300 hover:bg-sky-100 dark:hover:bg-[#0c2443] transition-colors" title="Cambiar Modo de Color">
                     <i id="theme-icon-light" data-lucide="sun" class="w-5 h-5 dark:hidden"></i>
                     <i id="theme-icon-dark" data-lucide="moon" class="w-5 h-5 hidden dark:block text-yellow-300"></i>
                 </button>
@@ -109,36 +103,36 @@
         
         <!-- PANTALLA DE INICIO (BIENVENIDA) -->
         <div id="welcome-screen" class="flex-grow flex flex-col items-center justify-center text-center max-w-2xl mx-auto py-12">
-            <div class="w-24 h-24 bg-gradient-to-tr from-indigo-600 to-violet-500 rounded-3xl flex items-center justify-center shadow-2xl shadow-indigo-500/20 mb-6 pulse-light-effect">
+            <div class="w-24 h-24 bg-gradient-to-tr from-[#00a8e8] to-[#0056b3] rounded-3xl flex items-center justify-center shadow-2xl shadow-sky-500/20 mb-6 pulse-light-effect">
                 <i data-lucide="route" class="w-12 h-12 text-white"></i>
             </div>
             <h2 class="text-3xl md:text-4xl font-extrabold header-font text-slate-900 dark:text-white mb-4 tracking-tight leading-tight">
-                Domina el Despliegue de Fibra Óptica con <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-violet-500 dark:from-indigo-400 dark:to-violet-400">Migtel</span>
+                Domina el Despliegue de Fibra Óptica con <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00a8e8] via-[#007cc0] to-[#0056b3]">MigTel</span>
             </h2>
-            <p class="text-slate-600 dark:text-slate-300 mb-8 leading-relaxed text-sm md:text-base">
+            <p class="text-sky-850 dark:text-sky-300 mb-8 leading-relaxed text-sm md:text-base">
                 Conviértete en Ingeniero de Planta Externa. Enfréntate a 3 escenarios reales de Migtel completando las 4 etapas críticas de un despliegue de telecomunicaciones: planificación con doble división FDT/NAP, física de guiado óptico, fusión milimétrica de precisión y diagnóstico por reflectometría (OTDR).
             </p>
             
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full mb-8">
-                <div class="p-3 bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-xl text-center shadow-sm">
-                    <div class="text-indigo-600 dark:text-indigo-400 mb-1"><i data-lucide="network" class="mx-auto w-5 h-5"></i></div>
-                    <p class="text-xs font-semibold text-slate-700 dark:text-slate-300">1. Planificar FTTH</p>
+                <div class="p-3 bg-white dark:bg-[#07162c] border border-sky-100 dark:border-sky-950 rounded-xl text-center shadow-sm">
+                    <div class="text-[#007cc0] dark:text-sky-400 mb-1"><i data-lucide="network" class="mx-auto w-5 h-5"></i></div>
+                    <p class="text-xs font-semibold text-sky-800 dark:text-sky-200">1. Planificar FTTH</p>
                 </div>
-                <div class="p-3 bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-xl text-center shadow-sm">
+                <div class="p-3 bg-white dark:bg-[#07162c] border border-sky-100 dark:border-sky-950 rounded-xl text-center shadow-sm">
                     <div class="text-amber-500 dark:text-amber-400 mb-1"><i data-lucide="activity" class="mx-auto w-5 h-5"></i></div>
-                    <p class="text-xs font-semibold text-slate-700 dark:text-slate-300">2. Guiar la Luz</p>
+                    <p class="text-xs font-semibold text-sky-800 dark:text-sky-200">2. Guiar la Luz</p>
                 </div>
-                <div class="p-3 bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-xl text-center shadow-sm">
+                <div class="p-3 bg-white dark:bg-[#07162c] border border-sky-100 dark:border-sky-950 rounded-xl text-center shadow-sm">
                     <div class="text-emerald-600 dark:text-emerald-400 mb-1"><i data-lucide="scissors" class="mx-auto w-5 h-5"></i></div>
-                    <p class="text-xs font-semibold text-slate-700 dark:text-slate-300">3. Fusión de Núcleo</p>
+                    <p class="text-xs font-semibold text-sky-800 dark:text-sky-200">3. Fusión de Núcleo</p>
                 </div>
-                <div class="p-3 bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-xl text-center shadow-sm">
-                    <div class="text-rose-600 dark:text-rose-400 mb-1"><i data-lucide="bar-chart-3" class="mx-auto w-5 h-5"></i></div>
-                    <p class="text-xs font-semibold text-slate-700 dark:text-slate-300">4. Diagnóstico OTDR</p>
+                <div class="p-3 bg-white dark:bg-[#07162c] border border-sky-100 dark:border-sky-950 rounded-xl text-center shadow-sm">
+                    <div class="text-rose-600 dark:text-rose-450 mb-1"><i data-lucide="bar-chart-3" class="mx-auto w-5 h-5"></i></div>
+                    <p class="text-xs font-semibold text-sky-800 dark:text-sky-200">4. Diagnóstico OTDR</p>
                 </div>
             </div>
 
-            <button onclick="startGame()" class="px-8 py-4 bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white font-bold rounded-xl shadow-lg shadow-indigo-500/20 transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-3">
+            <button onclick="startGame()" class="px-8 py-4 bg-gradient-to-r from-[#007cc0] to-[#0056b3] hover:from-[#0056b3] hover:to-[#003d82] text-white font-bold rounded-xl shadow-lg shadow-sky-500/20 transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-3">
                 Comenzar Entrenamiento <i data-lucide="arrow-right" class="w-5 h-5"></i>
             </button>
         </div>
@@ -150,165 +144,165 @@
             <div class="lg:w-1/4 flex flex-col gap-4">
                 
                 <!-- Tarjeta del Nivel Actual -->
-                <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-lg transition-colors duration-300">
-                    <div class="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1">Misión Actual</div>
-                    <h3 id="mission-title" class="text-lg font-bold text-slate-955 dark:text-white mb-2 header-font">Conexión Residencial</h3>
-                    <p id="mission-desc" class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4">Instalación simple a 1 casa unifamiliar. El presupuesto óptico permite un margen holgado, pero cuida los ángulos de curvatura.</p>
+                <div class="bg-white dark:bg-[#07162c] border border-sky-100 dark:border-sky-950 rounded-2xl p-5 shadow-lg transition-colors duration-300">
+                    <div class="text-xs font-bold text-sky-500 dark:text-sky-500 uppercase tracking-widest mb-1">Misión Actual</div>
+                    <h3 id="mission-title" class="text-lg font-bold text-slate-900 dark:text-white mb-2 header-font">Conexión Residencial</h3>
+                    <p id="mission-desc" class="text-xs text-sky-800 dark:text-sky-300 leading-relaxed mb-4">Instalación simple a 1 casa unifamiliar. El presupuesto óptico permite un margen holgado, pero cuida los ángulos de curvatura.</p>
                     
-                    <hr class="border-slate-200 dark:border-slate-800 mb-4" />
+                    <hr class="border-sky-100 dark:border-sky-900 mb-4" />
                     
                     <!-- Pasos / Subniveles -->
                     <div class="flex flex-col gap-3">
                         <!-- Paso 1 -->
-                        <div id="step-btn-1" class="flex items-center gap-3 p-2.5 rounded-xl border border-indigo-500 bg-indigo-50 dark:bg-indigo-950/20 text-slate-800 dark:text-white transition-all">
-                            <div class="step-num w-6 h-6 rounded-full bg-indigo-600 text-white flex items-center justify-center text-xs font-bold">1</div>
+                        <div id="step-btn-1" class="flex items-center gap-3 p-2.5 rounded-xl border border-[#007cc0] bg-sky-50 dark:bg-sky-950/20 text-slate-800 dark:text-white transition-all">
+                            <div class="step-num w-6 h-6 rounded-full bg-[#007cc0] text-white flex items-center justify-center text-xs font-bold">1</div>
                             <div class="text-left">
                                 <p class="text-xs font-bold">Estrategia FTTH</p>
-                                <p class="text-[10px] text-slate-500 dark:text-slate-400">Balance FDT + NAP</p>
+                                <p class="text-[10px] text-sky-600 dark:text-sky-400">Balance FDT + NAP</p>
                             </div>
                         </div>
                         <!-- Paso 2 -->
-                        <div id="step-btn-2" class="flex items-center gap-3 p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/40 text-slate-400 dark:text-slate-600 transition-all">
-                            <div class="step-num w-6 h-6 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-xs font-bold">2</div>
+                        <div id="step-btn-2" class="flex items-center gap-3 p-2.5 rounded-xl border border-sky-100 dark:border-sky-950 bg-sky-50/20 dark:bg-sky-950/40 text-sky-400 dark:text-sky-700 transition-all">
+                            <div class="step-num w-6 h-6 rounded-full bg-sky-200 dark:bg-sky-900 flex items-center justify-center text-xs font-bold">2</div>
                             <div class="text-left">
                                 <p class="text-xs font-bold">El Camino de la Luz</p>
-                                <p class="text-[10px] text-slate-500 dark:text-slate-400">Manejo de refracción</p>
+                                <p class="text-[10px] text-sky-650 dark:text-sky-500">Manejo de refracción</p>
                             </div>
                         </div>
                         <!-- Paso 3 -->
-                        <div id="step-btn-3" class="flex items-center gap-3 p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/40 text-slate-400 dark:text-slate-600 transition-all">
-                            <div class="step-num w-6 h-6 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-xs font-bold">3</div>
+                        <div id="step-btn-3" class="flex items-center gap-3 p-2.5 rounded-xl border border-sky-100 dark:border-sky-950 bg-sky-50/20 dark:bg-sky-950/40 text-sky-400 dark:text-sky-700 transition-all">
+                            <div class="step-num w-6 h-6 rounded-full bg-sky-200 dark:bg-sky-900 flex items-center justify-center text-xs font-bold">3</div>
                             <div class="text-left">
                                 <p class="text-xs font-bold">Fusión de Núcleos</p>
-                                <p class="text-[10px] text-slate-500 dark:text-slate-400">Operación de precisión</p>
+                                <p class="text-[10px] text-sky-650 dark:text-sky-500">Operación de precisión</p>
                             </div>
                         </div>
                         <!-- Paso 4 -->
-                        <div id="step-btn-4" class="flex items-center gap-3 p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/40 text-slate-400 dark:text-slate-600 transition-all">
-                            <div class="step-num w-6 h-6 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-xs font-bold">4</div>
+                        <div id="step-btn-4" class="flex items-center gap-3 p-2.5 rounded-xl border border-sky-100 dark:border-sky-950 bg-sky-50/20 dark:bg-sky-950/40 text-sky-400 dark:text-sky-700 transition-all">
+                            <div class="step-num w-6 h-6 rounded-full bg-sky-200 dark:bg-sky-900 flex items-center justify-center text-xs font-bold">4</div>
                             <div class="text-left">
                                 <p class="text-xs font-bold">Inspección OTDR</p>
-                                <p class="text-[10px] text-slate-500 dark:text-slate-400">Análisis y depuración</p>
+                                <p class="text-[10px] text-sky-650 dark:text-sky-500">Análisis y depuración</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Tarjeta de Info / Ayuda Técnica de Fibra -->
-                <div class="bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 flex-grow flex flex-col justify-between shadow-md transition-colors duration-300">
+                <div class="bg-white dark:bg-[#07162c] border border-sky-100 dark:border-sky-950 rounded-2xl p-4 flex-grow flex flex-col justify-between shadow-md transition-colors duration-300">
                     <div>
-                        <div class="flex items-center gap-2 text-indigo-600 dark:text-indigo-400 mb-2">
+                        <div class="flex items-center gap-2 text-[#007cc0] dark:text-sky-400 mb-2">
                             <i data-lucide="help-circle" class="w-4 h-4"></i>
                             <span class="text-xs font-bold uppercase tracking-wider">Concepto Clave</span>
                         </div>
                         <h4 id="tip-title" class="text-xs font-bold text-slate-900 dark:text-white mb-1">Pérdida por Splitting</h4>
-                        <p id="tip-desc" class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Cada vez que divides una señal de fibra óptica usando un splitter pasivo, atenuas la señal. Un splitter 1:8 genera una pérdida aproximada de ~9 a 10 dB.</p>
+                        <p id="tip-desc" class="text-xs text-sky-850 dark:text-sky-300 leading-relaxed">Cada vez que divides una señal de fibra óptica usando un splitter pasivo, atenuas la señal. Un splitter 1:8 genera una pérdida aproximada de ~9 a 10 dB.</p>
                     </div>
-                    <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-800 flex justify-between items-center">
-                        <span class="text-[10px] text-slate-400 dark:text-slate-500">MIGTEL LEARNING</span>
-                        <i data-lucide="award" class="w-4 h-4 text-slate-300 dark:text-slate-600"></i>
+                    <div class="mt-4 pt-3 border-t border-sky-100 dark:border-sky-900 flex justify-between items-center">
+                        <span class="text-[10px] text-sky-600 dark:text-sky-500">MIGTEL LEARNING</span>
+                        <i data-lucide="award" class="w-4 h-4 text-sky-400 dark:text-sky-600"></i>
                     </div>
                 </div>
             </div>
 
             <!-- PANEL CENTRAL DE JUEGO (CAMBIA DINÁMICAMENTE) -->
-            <div class="lg:w-3/4 flex flex-col bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-xl relative overflow-hidden transition-colors duration-300">
+            <div class="lg:w-3/4 flex flex-col bg-white dark:bg-[#07162c] border border-sky-100 dark:border-sky-950 rounded-3xl p-6 shadow-xl relative overflow-hidden transition-colors duration-300">
                 
                 <!-- SUB-PANTALLA 1: ESTRATEGIA FTTH (SOPORTA DOBLE DIVISIÓN FDT + NAP) -->
                 <div id="screen-ftth" class="flex-grow flex flex-col justify-between">
                     <div>
                         <div class="flex justify-between items-center">
-                            <span class="text-xs bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 px-2.5 py-1 rounded-full border border-indigo-500/20 font-semibold">ETAPA 1: ESTRATEGIA FTTH</span>
+                            <span class="text-xs bg-sky-100 dark:bg-sky-950/60 text-[#007cc0] dark:text-sky-400 px-2.5 py-1 rounded-full border border-sky-250 font-semibold">ETAPA 1: ESTRATEGIA FTTH</span>
                             <!-- Botón de ayuda -->
-                            <button onclick="openHelpModal('ftth')" class="p-1.5 text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors" title="Ver explicación de la etapa">
+                            <button onclick="openHelpModal('ftth')" class="p-1.5 text-sky-600 dark:text-sky-400 hover:text-[#0056b3] transition-colors" title="Ver explicación de la etapa">
                                 <i data-lucide="help-circle" class="w-5 h-5"></i>
                             </button>
                         </div>
                         <h3 class="text-2xl font-bold text-slate-900 dark:text-white header-font mt-3 mb-1">Cálculo de Presupuesto Óptico (Doble División)</h3>
-                        <p class="text-sm text-slate-600 dark:text-slate-400">GPON típico utiliza cascada: Primer Splitter en Caja de Distribución (<strong class="text-indigo-600 dark:text-indigo-400">FDT</strong>) y Segundo en Caja de Acceso (<strong class="text-purple-600 dark:text-purple-400">NAP</strong>). Consigue una potencia en la terminal (ONT) de <strong class="text-emerald-500">-15 a -27 dBm</strong>.</p>
+                        <p class="text-sm text-sky-800 dark:text-sky-300">GPON típico utiliza cascada: Primer Splitter en Caja de Distribución (<strong class="text-[#0056b3] dark:text-sky-300">FDT</strong>) y Segundo en Caja de Acceso (<strong class="text-[#007cc0] dark:text-sky-400">NAP</strong>). Consigue una potencia en la terminal (ONT) de <strong class="text-emerald-500 font-bold">-15 a -27 dBm</strong>.</p>
                         
                         <div class="grid md:grid-cols-2 gap-6 mt-6">
                             <!-- Formulario / Opciones -->
                             <div class="space-y-4">
                                 <!-- Potencia de salida OLT -->
-                                <div class="p-4 bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 rounded-2xl">
+                                <div class="p-4 bg-[#f0f9ff] dark:bg-slate-950/60 border border-sky-100 dark:border-sky-900 rounded-2xl">
                                     <div class="flex justify-between items-center mb-1">
-                                        <label class="block text-xs text-slate-600 dark:text-slate-400 font-bold">Potencia de salida OLT (Central):</label>
-                                        <span id="val-olt-power" class="text-xs font-bold text-indigo-600 dark:text-indigo-400">+5 dBm</span>
+                                        <label class="block text-xs text-sky-800 dark:text-sky-300 font-bold">Potencia de salida OLT (Central):</label>
+                                        <span id="val-olt-power" class="text-xs font-bold text-[#0056b3] dark:text-[#00a8e8]">+5 dBm</span>
                                     </div>
                                     <div class="flex items-center gap-3">
-                                        <input type="range" id="input-olt-power" min="1" max="9" step="1" value="5" class="w-full h-2 bg-slate-200 dark:bg-slate-800 rounded-lg appearance-none cursor-pointer accent-indigo-500" oninput="updateFTTHevaluation()">
+                                        <input type="range" id="input-olt-power" min="1" max="9" step="1" value="5" class="w-full h-2 bg-sky-200 dark:bg-sky-900 rounded-lg appearance-none cursor-pointer accent-[#007cc0]" oninput="updateFTTHevaluation()">
                                     </div>
-                                    <div class="flex justify-between text-[10px] text-slate-400 mt-1">
+                                    <div class="flex justify-between text-[10px] text-sky-600 dark:text-sky-400 mt-1">
                                         <span>+1 dBm (Mín)</span>
                                         <span>+9 dBm (Máx)</span>
                                     </div>
                                 </div>
 
                                 <!-- Primer Splitter (FDT) -->
-                                <div class="p-4 bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 rounded-2xl">
-                                    <label class="block text-xs text-slate-600 dark:text-slate-400 font-bold mb-2">1er Nivel: Splitter FDT (Caja Distribución):</label>
+                                <div class="p-4 bg-[#f0f9ff] dark:bg-slate-950/60 border border-sky-100 dark:border-sky-900 rounded-2xl">
+                                    <label class="block text-xs text-sky-800 dark:text-sky-300 font-bold mb-2">1er Nivel: Splitter FDT (Caja Distribución):</label>
                                     <div class="grid grid-cols-4 gap-2">
-                                        <button onclick="selectFDTSplitter(1, 0.0)" id="fdt-btn-1" class="p-2 border border-slate-200 dark:border-slate-800 rounded-xl text-[11px] font-semibold transition-all">Directo (0dB)</button>
-                                        <button onclick="selectFDTSplitter(2, 3.5)" id="fdt-btn-2" class="p-2 border border-slate-200 dark:border-slate-800 rounded-xl text-[11px] font-semibold transition-all">1:2 (-3.5dB)</button>
-                                        <button onclick="selectFDTSplitter(4, 7.2)" id="fdt-btn-4" class="p-2 border border-slate-200 dark:border-slate-800 rounded-xl text-[11px] font-semibold transition-all">1:4 (-7.2dB)</button>
-                                        <button onclick="selectFDTSplitter(8, 10.5)" id="fdt-btn-8" class="p-2 border border-slate-200 dark:border-slate-800 rounded-xl text-[11px] font-semibold transition-all">1:8 (-10.5dB)</button>
+                                        <button onclick="selectFDTSplitter(1, 0.0)" id="fdt-btn-1" class="p-2 border border-sky-200 dark:border-sky-900 rounded-xl text-[11px] font-semibold transition-all">Directo (0dB)</button>
+                                        <button onclick="selectFDTSplitter(2, 3.5)" id="fdt-btn-2" class="p-2 border border-sky-200 dark:border-sky-900 rounded-xl text-[11px] font-semibold transition-all">1:2 (-3.5dB)</button>
+                                        <button onclick="selectFDTSplitter(4, 7.2)" id="fdt-btn-4" class="p-2 border border-sky-200 dark:border-sky-900 rounded-xl text-[11px] font-semibold transition-all">1:4 (-7.2dB)</button>
+                                        <button onclick="selectFDTSplitter(8, 10.5)" id="fdt-btn-8" class="p-2 border border-sky-200 dark:border-sky-900 rounded-xl text-[11px] font-semibold transition-all">1:8 (-10.5dB)</button>
                                     </div>
                                 </div>
 
                                 <!-- Segundo Splitter (NAP) -->
-                                <div class="p-4 bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 rounded-2xl">
-                                    <label class="block text-xs text-slate-600 dark:text-slate-400 font-bold mb-2">2do Nivel: Splitter NAP (Caja Acceso Clientes):</label>
+                                <div class="p-4 bg-[#f0f9ff] dark:bg-slate-950/60 border border-sky-100 dark:border-sky-900 rounded-2xl">
+                                    <label class="block text-xs text-sky-800 dark:text-sky-300 font-bold mb-2">2do Nivel: Splitter NAP (Caja Acceso Clientes):</label>
                                     <div class="grid grid-cols-3 gap-2">
-                                        <button onclick="selectNAPSplitter(4, 7.2)" id="nap-btn-4" class="p-2 border border-slate-200 dark:border-slate-800 rounded-xl text-[11px] font-semibold transition-all">1:4 (-7.2dB)</button>
-                                        <button onclick="selectNAPSplitter(8, 10.5)" id="nap-btn-8" class="p-2 border border-slate-200 dark:border-slate-800 rounded-xl text-[11px] font-semibold transition-all">1:8 (-10.5dB)</button>
-                                        <button onclick="selectNAPSplitter(16, 14.0)" id="nap-btn-16" class="p-2 border border-slate-200 dark:border-slate-800 rounded-xl text-[11px] font-semibold transition-all">1:16 (-14dB)</button>
+                                        <button onclick="selectNAPSplitter(4, 7.2)" id="nap-btn-4" class="p-2 border border-sky-200 dark:border-sky-900 rounded-xl text-[11px] font-semibold transition-all">1:4 (-7.2dB)</button>
+                                        <button onclick="selectNAPSplitter(8, 10.5)" id="nap-btn-8" class="p-2 border border-sky-200 dark:border-sky-900 rounded-xl text-[11px] font-semibold transition-all">1:8 (-10.5dB)</button>
+                                        <button onclick="selectNAPSplitter(16, 14.0)" id="nap-btn-16" class="p-2 border border-sky-200 dark:border-sky-900 rounded-xl text-[11px] font-semibold transition-all">1:16 (-14dB)</button>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- Esquema visual del cálculo -->
-                            <div class="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 flex flex-col justify-between">
+                            <div class="bg-[#f0f9ff] dark:bg-slate-950 border border-sky-100 dark:border-sky-900 rounded-2xl p-5 flex flex-col justify-between shadow-sm">
                                 <div class="text-center py-2">
-                                    <div class="text-[10px] text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1">Diagrama GPON Cascada</div>
+                                    <div class="text-[10px] text-sky-600 dark:text-sky-400 uppercase tracking-widest mb-1">Diagrama GPON Cascada</div>
                                     <div class="flex items-center justify-center gap-1.5 mt-2 overflow-x-auto py-1">
-                                        <div class="p-1.5 bg-indigo-50 dark:bg-indigo-950/50 border border-indigo-200 dark:border-indigo-900/50 rounded-lg text-[9px] font-bold whitespace-nowrap">OLT</div>
-                                        <div class="w-3 h-0.5 bg-slate-300 dark:bg-slate-700"></div>
-                                        <div class="p-1.5 bg-indigo-50 dark:bg-indigo-950/50 border border-indigo-200 dark:border-indigo-900/50 rounded-lg text-[9px] font-bold whitespace-nowrap" id="diag-fdt">FDT 1:2</div>
-                                        <div class="w-3 h-0.5 bg-slate-300 dark:bg-slate-700"></div>
-                                        <div class="p-1.5 bg-purple-50 dark:bg-purple-950/50 border border-purple-200 dark:border-purple-900/50 rounded-lg text-[9px] font-bold whitespace-nowrap" id="diag-nap">NAP 1:8</div>
-                                        <div class="w-3 h-0.5 bg-slate-300 dark:bg-slate-700"></div>
-                                        <div class="p-1.5 bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-900/50 rounded-lg text-[9px] font-bold whitespace-nowrap">ONT</div>
+                                        <div class="p-1.5 bg-sky-50 dark:bg-sky-950/50 border border-sky-200 dark:border-sky-800 rounded-lg text-[9px] font-bold whitespace-nowrap text-[#0056b3] dark:text-sky-300">OLT</div>
+                                        <div class="w-3 h-0.5 bg-sky-250 dark:bg-sky-800"></div>
+                                        <div class="p-1.5 bg-sky-50 dark:bg-sky-950/50 border border-sky-200 dark:border-sky-800 rounded-lg text-[9px] font-bold whitespace-nowrap text-[#0056b3] dark:text-sky-300" id="diag-fdt">FDT 1:2</div>
+                                        <div class="w-3 h-0.5 bg-sky-250 dark:bg-sky-800"></div>
+                                        <div class="p-1.5 bg-[#f0f9ff] dark:bg-sky-950/50 border border-sky-200 dark:border-sky-800 rounded-lg text-[9px] font-bold whitespace-nowrap text-[#007cc0] dark:text-sky-300" id="diag-nap">NAP 1:8</div>
+                                        <div class="w-3 h-0.5 bg-sky-250 dark:bg-sky-800"></div>
+                                        <div class="p-1.5 bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-900 rounded-lg text-[9px] font-bold whitespace-nowrap text-emerald-600">ONT</div>
                                     </div>
                                 </div>
 
-                                <div class="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800/80 rounded-xl p-4 space-y-1.5 text-xs">
-                                    <div class="flex justify-between text-slate-600 dark:text-slate-400">
+                                <div class="bg-white dark:bg-slate-900 border border-sky-100 dark:border-sky-950 rounded-xl p-4 space-y-1.5 text-xs">
+                                    <div class="flex justify-between text-sky-800 dark:text-sky-300">
                                         <span>Longitud de Fibra:</span>
                                         <span id="val-enlace-dist" class="font-bold">1.2 km</span>
                                     </div>
-                                    <div class="flex justify-between text-slate-600 dark:text-slate-400">
+                                    <div class="flex justify-between text-sky-800 dark:text-sky-300">
                                         <span>Pérdida por distancia (0.35 dB/km):</span>
                                         <span id="val-loss-cable" class="font-bold">-0.42 dB</span>
                                     </div>
-                                    <div class="flex justify-between text-slate-600 dark:text-slate-400">
+                                    <div class="flex justify-between text-sky-800 dark:text-sky-300">
                                         <span>Pérdida FDT:</span>
-                                        <span id="val-loss-fdt" class="font-bold text-indigo-600 dark:text-indigo-400">-3.50 dB</span>
+                                        <span id="val-loss-fdt" class="font-bold text-[#0056b3] dark:text-[#00a8e8]">-3.50 dB</span>
                                     </div>
-                                    <div class="flex justify-between text-slate-600 dark:text-slate-400">
+                                    <div class="flex justify-between text-sky-800 dark:text-sky-300">
                                         <span>Pérdida NAP:</span>
-                                        <span id="val-loss-nap" class="font-bold text-purple-600 dark:text-purple-400">-10.50 dB</span>
+                                        <span id="val-loss-nap" class="font-bold text-[#007cc0] dark:text-sky-400">-10.50 dB</span>
                                     </div>
-                                    <div class="flex justify-between text-slate-600 dark:text-slate-400">
+                                    <div class="flex justify-between text-sky-800 dark:text-sky-300">
                                         <span>Conectores / Pérdidas fijas:</span>
                                         <span class="font-bold">-0.80 dB</span>
                                     </div>
-                                    <hr class="border-slate-150 dark:border-slate-800 my-1">
+                                    <hr class="border-sky-100 dark:border-sky-900 my-1">
                                     <div class="flex justify-between text-sm">
-                                        <span class="font-bold text-slate-800 dark:text-white">Potencia Recibida (ONT):</span>
+                                        <span class="font-bold text-slate-900 dark:text-white">Potencia Recibida (ONT):</span>
                                         <span id="val-final-power" class="font-bold text-rose-500">-10.22 dBm</span>
                                     </div>
-                                    <div id="ftth-status-badge" class="mt-2 text-center text-[11px] font-bold py-1 px-3 rounded-full bg-red-100 dark:bg-red-950/40 border border-red-500/30 text-red-600 dark:text-red-400">
+                                    <div id="ftth-status-badge" class="mt-2 text-center text-[11px] font-bold py-1 px-3 rounded-full bg-rose-100 dark:bg-rose-950/40 border border-rose-450/30 text-rose-600 dark:text-rose-400">
                                         SEÑAL DEMASIADO ALTA (Provoca saturación)
                                     </div>
                                 </div>
@@ -316,8 +310,8 @@
                         </div>
                     </div>
 
-                    <div class="mt-6 pt-4 border-t border-slate-200 dark:border-slate-800 flex justify-end">
-                        <button onclick="submitFTTHStep()" id="ftth-next-btn" class="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed text-white text-xs font-bold rounded-xl flex items-center gap-2 transition-all">
+                    <div class="mt-6 pt-4 border-t border-sky-100 dark:border-sky-900 flex justify-end">
+                        <button onclick="submitFTTHStep()" id="ftth-next-btn" class="px-6 py-3 bg-[#007cc0] hover:bg-[#0056b3] text-white text-xs font-bold rounded-xl flex items-center gap-2 transition-all">
                             Validar Diseño FTTH <i data-lucide="shield-check" class="w-4 h-4"></i>
                         </button>
                     </div>
@@ -329,39 +323,39 @@
                         <div class="flex justify-between items-center">
                             <span class="text-xs bg-amber-500/10 text-amber-600 dark:text-amber-400 px-2.5 py-1 rounded-full border border-amber-500/20 font-semibold">ETAPA 2: EL CAMINO DE LA LUZ</span>
                             <!-- Botón de ayuda -->
-                            <button onclick="openHelpModal('laser')" class="p-1.5 text-slate-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors" title="Ver explicación de la etapa">
+                            <button onclick="openHelpModal('laser')" class="p-1.5 text-sky-600 dark:text-sky-400 hover:text-sky-800 transition-colors" title="Ver explicación de la etapa">
                                 <i data-lucide="help-circle" class="w-5 h-5"></i>
                             </button>
                         </div>
                         <h3 class="text-2xl font-bold text-slate-900 dark:text-white header-font mt-3 mb-1">Control del Ángulo Crítico de Refracción</h3>
-                        <p class="text-sm text-slate-600 dark:text-slate-400 mb-3">Guía el haz de luz dentro de la fibra (núcleo). Ajusta el ángulo de emisión para asegurar la <strong class="text-amber-500 dark:text-amber-400">Reflexión Total Interna</strong> sin exceder la curvatura o perderás señal en las paredes.</p>
+                        <p class="text-sm text-sky-800 dark:text-sky-300 mb-3">Guía el haz de luz dentro de la fibra (núcleo). Ajusta el ángulo de emisión para asegurar la <strong class="text-amber-500 dark:text-amber-400 font-bold">Reflexión Total Interna</strong> sin exceder la curvatura o perderás señal en las paredes.</p>
 
                         <!-- Área de juego interactivo del láser -->
-                        <div class="relative w-full h-64 bg-slate-950 border border-slate-800 rounded-2xl overflow-hidden flex flex-col justify-between p-4">
+                        <div class="relative w-full h-64 bg-slate-950 border border-sky-900/40 rounded-2xl overflow-hidden flex flex-col justify-between p-4">
                             <!-- Canvas del juego del láser -->
                             <canvas id="laserCanvas" class="absolute top-0 left-0 w-full h-full z-10 pointer-events-none"></canvas>
                             
                             <!-- Dibujo de Interfaz y controles encimados de decoración -->
-                            <div class="flex justify-between text-[10px] text-slate-500 z-20 pointer-events-none uppercase tracking-wider">
+                            <div class="flex justify-between text-[10px] text-sky-400 z-20 pointer-events-none uppercase tracking-wider">
                                 <span>Emisor OLT</span>
                                 <span>Núcleo de Fibra (Revestimiento externo)</span>
                                 <span>Receptor ONT</span>
                             </div>
 
                             <!-- Botones de Control de Ángulo -->
-                            <div class="z-20 w-full mt-auto flex flex-col sm:flex-row justify-between items-center gap-4 bg-slate-900/90 border border-slate-800 p-3 rounded-xl backdrop-blur-sm">
+                            <div class="z-20 w-full mt-auto flex flex-col sm:flex-row justify-between items-center gap-4 bg-[#07162c]/90 border border-sky-950 p-3 rounded-xl backdrop-blur-sm">
                                 <div class="flex items-center gap-3 w-full sm:w-auto">
-                                    <span class="text-xs font-bold text-slate-300 whitespace-nowrap">Ángulo Láser:</span>
-                                    <input type="range" id="laser-angle" min="5" max="45" value="20" class="w-full sm:w-48 h-2 bg-slate-850 rounded-lg appearance-none cursor-pointer accent-amber-500" oninput="drawLaserPath()">
-                                    <span id="laser-angle-val" class="text-xs font-bold text-amber-400">20°</span>
+                                    <span class="text-xs font-bold text-sky-200 whitespace-nowrap">Ángulo Láser:</span>
+                                    <input type="range" id="laser-angle" min="5" max="45" value="20" class="w-full sm:w-48 h-2 bg-sky-950 rounded-lg appearance-none cursor-pointer accent-[#00a8e8]" oninput="drawLaserPath()">
+                                    <span id="laser-angle-val" class="text-xs font-bold text-[#00a8e8]">20°</span>
                                 </div>
                                 <div class="flex items-center gap-4 text-xs text-white">
                                     <div>
-                                        <span class="text-slate-400">Rebotes:</span>
+                                        <span class="text-sky-300">Rebotes:</span>
                                         <span id="laser-rebounds" class="font-bold text-white">0</span>
                                     </div>
                                     <div>
-                                        <span class="text-slate-400">Pérdida por curvatura:</span>
+                                        <span class="text-sky-300">Pérdida por curvatura:</span>
                                         <span id="laser-loss" class="font-bold text-emerald-450">0.00 dB</span>
                                     </div>
                                 </div>
@@ -369,7 +363,7 @@
                         </div>
                     </div>
 
-                    <div class="mt-6 pt-4 border-t border-slate-200 dark:border-slate-800 flex justify-end">
+                    <div class="mt-6 pt-4 border-t border-sky-100 dark:border-sky-900 flex justify-end">
                         <button onclick="submitLaserStep()" id="laser-next-btn" class="px-6 py-3 bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold rounded-xl flex items-center gap-2 transition-all">
                             Transmitir Señal Óptica <i data-lucide="zap" class="w-4 h-4"></i>
                         </button>
@@ -380,20 +374,20 @@
                 <div id="screen-fusion" class="hidden flex-grow flex flex-col justify-between">
                     <div>
                         <div class="flex justify-between items-center">
-                            <span class="text-xs bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 px-2.5 py-1 rounded-full border border-emerald-500/20 font-semibold">ETAPA 3: FUSIÓN DE NÚCLEO</span>
+                            <span class="text-xs bg-emerald-550/10 text-emerald-600 dark:text-emerald-400 px-2.5 py-1 rounded-full border border-emerald-500/20 font-semibold">ETAPA 3: FUSIÓN DE NÚCLEO</span>
                             <!-- Botón de ayuda -->
-                            <button onclick="openHelpModal('fusion')" class="p-1.5 text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors" title="Ver explicación de la etapa">
+                            <button onclick="openHelpModal('fusion')" class="p-1.5 text-sky-600 dark:text-sky-400 hover:text-sky-850 transition-colors" title="Ver explicación de la etapa">
                                 <i data-lucide="help-circle" class="w-5 h-5"></i>
                             </button>
                         </div>
                         <h3 class="text-2xl font-bold text-slate-900 dark:text-white header-font mt-3 mb-1">Alineación por Núcleo en Fusión</h3>
-                        <p class="text-sm text-slate-600 dark:text-slate-400">Alinea con cuidado el núcleo (<span class="text-indigo-600 dark:text-indigo-400 font-bold">core</span> de $9\ \mu m$) de ambas fibras. Las pérdidas deben ser menores a <strong class="text-emerald-500">0.30 dB</strong> para que la soldadura sea aceptada.</p>
+                        <p class="text-sm text-sky-800 dark:text-sky-300 font-medium">Alinea con cuidado el núcleo (<span class="text-[#007cc0] dark:text-[#00a8e8] font-bold">core</span> de $9\ \mu m$) de ambas fibras. Las pérdidas deben ser menores a <strong class="text-emerald-500">0.30 dB</strong> para que la soldadura sea aceptada.</p>
 
                         <div class="grid md:grid-cols-5 gap-6 mt-6">
                             <!-- Visualizador de la fusionadora -->
-                            <div class="md:col-span-3 bg-slate-950 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between relative overflow-hidden h-72">
+                            <div class="md:col-span-3 bg-slate-950 border border-sky-950 rounded-2xl p-4 flex flex-col justify-between relative overflow-hidden h-72">
                                 <div class="absolute inset-0 bg-radial-gradient from-emerald-500/5 to-transparent pointer-events-none"></div>
-                                <div class="flex justify-between items-center text-[10px] text-slate-500 font-mono tracking-widest z-10">
+                                <div class="flex justify-between items-center text-[10px] text-sky-500 font-mono tracking-widest z-10">
                                     <span>VISTA: NÚCLEO X-Y</span>
                                     <span class="animate-pulse text-emerald-450">● EN ALINEACIÓN</span>
                                 </div>
@@ -401,18 +395,18 @@
                                 <!-- Simulador Visual de Fibra -->
                                 <div class="relative flex-grow flex items-center justify-center my-4">
                                     <!-- Eje central -->
-                                    <div class="absolute w-full h-0.5 border-t border-dashed border-slate-800 pointer-events-none"></div>
+                                    <div class="absolute w-full h-0.5 border-t border-dashed border-sky-900/30 pointer-events-none"></div>
 
                                     <!-- Fibra Izquierda (Fija) -->
                                     <div class="absolute left-0 w-[42%] h-12 bg-slate-800 rounded-r border-y-2 border-slate-700 flex items-center justify-end">
                                         <!-- Núcleo interno de la fibra -->
-                                        <div class="w-full h-2 bg-indigo-500/70 shadow-lg shadow-indigo-500/20"></div>
+                                        <div class="w-full h-2 bg-[#00a8e8]/70 shadow-lg shadow-sky-500/20"></div>
                                     </div>
 
                                     <!-- Fibra Derecha (Móvil) -->
                                     <div id="movable-fiber" class="absolute right-0 w-[42%] h-12 bg-slate-800 rounded-l border-y-2 border-slate-700 flex items-center transform transition-transform duration-100" style="transform: translateY(12px);">
                                         <!-- Núcleo interno móvil -->
-                                        <div class="w-full h-2 bg-indigo-500/70 shadow-lg shadow-indigo-500/20"></div>
+                                        <div class="w-full h-2 bg-[#00a8e8]/70 shadow-lg shadow-sky-500/20"></div>
                                     </div>
 
                                     <!-- Arco Eléctrico -->
@@ -420,59 +414,59 @@
                                 </div>
 
                                 <!-- Lecturas Digitales de la Fusionadora -->
-                                <div class="bg-slate-900 border border-slate-850 p-3 rounded-xl flex justify-between text-center text-xs font-mono z-10 text-white">
+                                <div class="bg-slate-900 border border-sky-950 p-3 rounded-xl flex justify-between text-center text-xs font-mono z-10 text-white">
                                     <div>
-                                        <p class="text-[10px] text-slate-500">Desfase Y</p>
+                                        <p class="text-[10px] text-sky-400">Desfase Y</p>
                                         <p id="txt-offset-y" class="font-bold text-rose-400">1.20 µm</p>
                                     </div>
                                     <div>
-                                        <p class="text-[10px] text-slate-500">Ángulo Cleaver</p>
+                                        <p class="text-[10px] text-sky-400">Ángulo Cleaver</p>
                                         <p id="txt-cleaver-angle" class="font-bold text-emerald-400">0.2°</p>
                                     </div>
                                     <div>
-                                        <p class="text-[10px] text-slate-500">Pérdida Estimada</p>
+                                        <p class="text-[10px] text-sky-400">Pérdida Estimada</p>
                                         <p id="txt-loss-estimate" class="font-bold text-amber-500">0.32 dB</p>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- Controles del Empalme -->
-                            <div class="md:col-span-2 flex flex-col justify-between bg-slate-50 dark:bg-slate-950/40 border border-slate-200 dark:border-slate-800 rounded-2xl p-5">
+                            <div class="md:col-span-2 flex flex-col justify-between bg-[#f0f9ff] dark:bg-slate-950/40 border border-sky-100 dark:border-sky-900 rounded-2xl p-5">
                                 <div>
-                                    <h4 class="text-xs font-bold text-slate-505 dark:text-slate-400 uppercase tracking-wider mb-3">Servomotores de Alineación</h4>
+                                    <h4 class="text-xs font-bold text-sky-700 dark:text-sky-400 uppercase tracking-wider mb-3">Servomotores de Alineación</h4>
                                     
                                     <div class="space-y-4">
                                         <!-- Control Desplazamiento Eje Y -->
                                         <div>
                                             <div class="flex justify-between text-xs mb-1">
-                                                <span class="text-slate-600 dark:text-slate-400">Ajuste Altura (Eje Y):</span>
+                                                <span class="text-sky-800 dark:text-sky-300 font-semibold">Ajuste Altura (Eje Y):</span>
                                                 <span class="font-bold text-slate-900 dark:text-white font-mono" id="lbl-ajuste-y">12px</span>
                                             </div>
                                             <div class="flex gap-2">
-                                                <button onclick="adjustFiberY(-1)" class="flex-grow py-2 bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-white font-bold rounded-lg text-xs transition-colors">- Subir</button>
-                                                <button onclick="adjustFiberY(1)" class="flex-grow py-2 bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-white font-bold rounded-lg text-xs transition-colors">+ Bajar</button>
+                                                <button onclick="adjustFiberY(-1)" class="flex-grow py-2 bg-sky-100 dark:bg-sky-900 hover:bg-sky-200 dark:hover:bg-sky-800 text-[#0056b3] dark:text-white font-bold rounded-lg text-xs transition-colors">- Subir</button>
+                                                <button onclick="adjustFiberY(1)" class="flex-grow py-2 bg-sky-100 dark:bg-sky-900 hover:bg-sky-200 dark:hover:bg-sky-800 text-[#0056b3] dark:text-white font-bold rounded-lg text-xs transition-colors">+ Bajar</button>
                                             </div>
                                         </div>
 
                                         <!-- Botón de Disparo de Arco -->
                                         <div class="pt-2">
-                                            <button onclick="triggerElectricArc()" id="btn-fire-fusion" class="w-full py-4 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/10 transition-all">
+                                            <button onclick="triggerElectricArc()" id="btn-fire-fusion" class="w-full py-4 bg-gradient-to-r from-[#007cc0] to-[#0056b3] hover:from-[#0056b3] hover:to-[#003d82] text-white font-bold rounded-xl text-xs flex items-center justify-center gap-2 shadow-lg shadow-sky-500/10 transition-all">
                                                 <i data-lucide="flame" class="w-4 h-4"></i> Disparar Arco Eléctrico
                                             </button>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="bg-white dark:bg-slate-900/60 p-3 border border-slate-200 dark:border-slate-800 rounded-xl mt-4">
-                                    <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
-                                        <strong class="text-slate-800 dark:text-slate-300">Tip técnico:</strong> El núcleo es apenas una fracción de un cabello. Si no está alineado a nivel sub-micrónico, la atenuación será severa.
+                                <div class="bg-white dark:bg-slate-900/60 p-3 border border-sky-100 dark:border-sky-900 rounded-xl mt-4">
+                                    <p class="text-[11px] text-sky-800 dark:text-sky-300 leading-relaxed">
+                                        <strong class="text-[#0056b3] dark:text-sky-100">Tip técnico:</strong> El núcleo es apenas una fracción de un cabello. Si no está alineado a nivel sub-micrónico, la atenuación será severa.
                                     </p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="mt-6 pt-4 border-t border-slate-200 dark:border-slate-800 flex justify-end">
+                    <div class="mt-6 pt-4 border-t border-sky-100 dark:border-sky-900 flex justify-end">
                         <button onclick="submitFusionStep()" id="fusion-next-btn" disabled class="px-6 py-3 bg-emerald-600 hover:bg-emerald-700 disabled:opacity-50 disabled:cursor-not-allowed text-white text-xs font-bold rounded-xl flex items-center gap-2 transition-all">
                             Siguiente Etapa <i data-lucide="arrow-right" class="w-4 h-4"></i>
                         </button>
@@ -483,27 +477,27 @@
                 <div id="screen-otdr" class="hidden flex-grow flex flex-col justify-between">
                     <div>
                         <div class="flex justify-between items-center">
-                            <span class="text-xs bg-rose-500/10 text-rose-600 dark:text-rose-400 px-2.5 py-1 rounded-full border border-rose-500/20 font-semibold">ETAPA 4: INSPECTOR OTDR</span>
+                            <span class="text-xs bg-rose-500/10 text-rose-600 dark:text-rose-450 px-2.5 py-1 rounded-full border border-rose-450/45 font-semibold">ETAPA 4: INSPECTOR OTDR</span>
                             <!-- Botón de ayuda -->
-                            <button onclick="openHelpModal('otdr')" class="p-1.5 text-slate-400 hover:text-rose-600 dark:hover:text-rose-400 transition-colors" title="Ver explicación de la etapa">
+                            <button onclick="openHelpModal('otdr')" class="p-1.5 text-sky-600 dark:text-sky-400 hover:text-sky-850 transition-colors" title="Ver explicación de la etapa">
                                 <i data-lucide="help-circle" class="w-5 h-5"></i>
                             </button>
                         </div>
                         <h3 class="text-2xl font-bold text-slate-900 dark:text-white header-font mt-3 mb-1">Diagnóstico de Reflectometría Temporal (OTDR)</h3>
-                        <p class="text-sm text-slate-600 dark:text-slate-400 mb-2">Identifica con precisión dónde ocurrió el evento anómalo (curvatura excesiva, conector sucio o rotura). Haz clic en la gran caída de la gráfica.</p>
+                        <p class="text-sm text-sky-800 dark:text-sky-300 mb-2">Identifica con precisión dónde ocurrió el evento anómalo (curvatura excesiva, conector sucio o rotura). Haz clic en la gran caída de la gráfica.</p>
 
                         <!-- Panel de visualización de Gráfica OTDR -->
                         <div class="grid md:grid-cols-4 gap-6 mt-4">
                             <!-- Gráfico Dibujado con Canvas -->
-                            <div class="md:col-span-3 bg-slate-950 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between relative h-64">
-                                <div class="flex justify-between items-center text-[10px] text-slate-500 font-mono tracking-wider">
+                            <div class="md:col-span-3 bg-slate-950 border border-sky-900 rounded-2xl p-4 flex flex-col justify-between relative h-64">
+                                <div class="flex justify-between items-center text-[10px] text-sky-400 font-mono tracking-wider">
                                     <span>MEDIDOR DE ATENUACIÓN DEL ENLACE (dB)</span>
                                     <span>MIGTEL ANALYZER</span>
                                 </div>
                                 <div class="relative flex-grow my-2">
-                                    <canvas id="otdrCanvas" class="w-full h-full cursor-crosshair border border-slate-900 rounded-lg bg-slate-950"></canvas>
+                                    <canvas id="otdrCanvas" class="w-full h-full cursor-crosshair border border-sky-950 rounded-lg bg-slate-950"></canvas>
                                 </div>
-                                <div class="flex justify-between text-[9px] text-slate-500 font-mono">
+                                <div class="flex justify-between text-[9px] text-sky-450 font-mono">
                                     <span>0.0 km</span>
                                     <span>Distancia en Kilómetros</span>
                                     <span id="otdr-max-dist">2.0 km</span>
@@ -511,33 +505,33 @@
                             </div>
 
                             <!-- Herramientas de Diagnóstico -->
-                            <div class="flex flex-col justify-between bg-slate-50 dark:bg-slate-950/40 border border-slate-200 dark:border-slate-800 rounded-2xl p-4">
+                            <div class="flex flex-col justify-between bg-[#f0f9ff] dark:bg-slate-950/40 border border-sky-100 dark:border-sky-900 rounded-2xl p-4">
                                 <div>
-                                    <h4 class="text-xs font-bold text-slate-550 dark:text-slate-400 uppercase tracking-wider mb-2">Lectura de Anomalías</h4>
+                                    <h4 class="text-xs font-bold text-sky-700 dark:text-sky-400 uppercase tracking-wider mb-2">Lectura de Anomalías</h4>
                                     
                                     <div class="space-y-3">
-                                        <div class="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-xs">
-                                            <p class="text-slate-500 dark:text-slate-400 font-semibold">Evento Sospechoso:</p>
+                                        <div class="p-3 bg-white dark:bg-slate-900 border border-sky-100 dark:border-sky-800 rounded-xl text-xs">
+                                            <p class="text-sky-600 dark:text-sky-455 font-semibold">Evento Sospechoso:</p>
                                             <p id="otdr-event-detected" class="text-amber-500 font-bold mt-1">Selecciona el punto de caída en la gráfica</p>
                                         </div>
                                         
-                                        <div class="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-[11px] leading-relaxed text-slate-500 dark:text-slate-400">
-                                            <strong class="text-slate-800 dark:text-slate-300">Guía de Análisis:</strong> 
+                                        <div class="p-3 bg-white dark:bg-slate-900 border border-sky-100 dark:border-sky-800 rounded-xl text-[11px] leading-relaxed text-sky-700 dark:text-sky-300">
+                                            <strong class="text-slate-900 dark:text-white">Guía de Análisis:</strong> 
                                             <ul class="list-disc list-inside space-y-1 mt-1">
-                                                <li><strong class="text-indigo-600 dark:text-indigo-400">Picos positivos:</strong> Conectores con pérdidas reflectivas.</li>
-                                                <li><strong class="text-rose-550">Caídas directas:</strong> Dobleces críticos, empalmes deficientes o fisuras.</li>
+                                                <li><strong class="text-[#007cc0] dark:text-[#00a8e8]">Picos positivos:</strong> Conectores con pérdidas reflectivas.</li>
+                                                <li><strong class="text-rose-500">Caídas directas:</strong> Dobleces críticos o roturas de hilos.</li>
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div id="otdr-feedback" class="text-xs text-slate-700 dark:text-slate-300 mt-2 font-semibold"></div>
+                                <div id="otdr-feedback" class="text-xs text-slate-700 dark:text-sky-300 mt-2 font-semibold font-mono"></div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="mt-6 pt-4 border-t border-slate-200 dark:border-slate-800 flex justify-between items-center">
-                        <span class="text-xs text-slate-500">Encuentra el punto de caída para autorizar la reparación.</span>
+                    <div class="mt-6 pt-4 border-t border-sky-100 dark:border-sky-900 flex justify-between items-center">
+                        <span class="text-xs text-sky-600 dark:text-sky-500 font-medium">Encuentra el punto de caída para autorizar la reparación técnica.</span>
                         <button onclick="submitOTDRStep()" id="otdr-next-btn" disabled class="px-6 py-3 bg-rose-600 hover:bg-rose-700 disabled:opacity-50 disabled:cursor-not-allowed text-white text-xs font-bold rounded-xl flex items-center gap-2 transition-all">
                             Finalizar Misión <i data-lucide="check-circle" class="w-4 h-4"></i>
                         </button>
@@ -550,39 +544,39 @@
                         <i data-lucide="award" class="w-10 h-10"></i>
                     </div>
                     <h3 class="text-3xl font-extrabold text-slate-900 dark:text-white header-font mb-2">¡Contrato Completado!</h3>
-                    <p id="success-message" class="text-slate-600 dark:text-slate-300 text-sm max-w-md mb-6 leading-relaxed">Fabuloso trabajo. Has optimizado el diseño FTTH de doble división.</p>
+                    <p id="success-message" class="text-sky-850 dark:text-sky-300 text-sm max-w-md mb-6 leading-relaxed">Fabuloso trabajo. Has optimizado el diseño FTTH de doble división.</p>
 
-                    <div class="grid grid-cols-2 gap-4 w-full max-w-sm mb-8 bg-slate-50 dark:bg-slate-950/60 p-4 border border-slate-200 dark:border-slate-800 rounded-2xl">
+                    <div class="grid grid-cols-2 gap-4 w-full max-w-sm mb-8 bg-[#f0f9ff] dark:bg-slate-950/60 p-4 border border-sky-100 dark:border-sky-900 rounded-2xl">
                         <div>
-                            <p class="text-[10px] text-slate-505 uppercase tracking-wider font-semibold">Nivel Completado</p>
+                            <p class="text-[10px] text-sky-600 uppercase tracking-wider font-semibold">Nivel Completado</p>
                             <p id="success-level-name" class="text-sm font-bold text-slate-900 dark:text-white mt-1">Cliente Residencial</p>
                         </div>
                         <div>
-                            <p class="text-[10px] text-slate-505 uppercase tracking-wider font-semibold">Puntos Añadidos</p>
-                            <p id="success-points-added" class="text-sm font-bold text-emerald-505 dark:text-emerald-400 mt-1">+1000 Pts</p>
+                            <p class="text-[10px] text-sky-600 uppercase tracking-wider font-semibold">Puntos Añadidos</p>
+                            <p id="success-points-added" class="text-sm font-bold text-emerald-600 dark:text-emerald-400 mt-1">+1000 Pts</p>
                         </div>
                     </div>
 
-                    <button onclick="nextLevel()" id="success-next-action-btn" class="px-8 py-3.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl flex items-center gap-2 transition-all">
+                    <button onclick="nextLevel()" id="success-next-action-btn" class="px-8 py-3.5 bg-[#007cc0] hover:bg-[#0056b3] text-white font-bold rounded-xl flex items-center gap-2 transition-all">
                         Siguiente Misión de Migtel <i data-lucide="arrow-right" class="w-4.5 h-4.5"></i>
                     </button>
                 </div>
 
                 <!-- PANTALLA FIN DE JUEGO TOTAL -->
                 <div id="screen-gameover" class="hidden flex-grow flex flex-col items-center justify-center text-center py-6">
-                    <div class="w-20 h-20 bg-indigo-500/10 text-indigo-550 border border-indigo-500/20 rounded-full flex items-center justify-center mb-6 pulse-light-effect">
-                        <i data-lucide="trophy" class="w-10 h-10 text-yellow-500 dark:text-yellow-400"></i>
+                    <div class="w-20 h-20 bg-sky-100 dark:bg-sky-950/50 text-[#007cc0] border border-sky-200 rounded-full flex items-center justify-center mb-6 pulse-light-effect">
+                        <i data-lucide="trophy" class="w-10 h-10 text-yellow-500"></i>
                     </div>
-                    <h3 class="text-4xl font-extrabold text-slate-900 dark:text-white header-font mb-2">¡Felicidades, Eres un Máster de la Fibra!</h3>
-                    <p class="text-slate-600 dark:text-slate-300 text-sm max-w-md mb-6 leading-relaxed">Has completado todos los niveles de entrenamiento de Migtel de manera impecable. El sistema PON, los cálculos de atenuación, la precisión de acoplamiento óptico y el diagnóstico por reflectometría ya no tienen secretos para ti.</p>
+                    <h3 class="text-4xl font-extrabold text-[#0056b3] dark:text-white header-font mb-2">¡Felicidades, Eres un Máster de la Fibra!</h3>
+                    <p class="text-sky-800 dark:text-sky-300 text-sm max-w-md mb-6 leading-relaxed">Has completado todos los niveles de entrenamiento de Migtel de manera impecable. El sistema PON, los cálculos de atenuación, la precisión de acoplamiento óptico y el diagnóstico por reflectometría ya no tienen secretos para ti.</p>
 
-                    <div class="bg-slate-50 dark:bg-slate-950/60 p-5 border border-slate-200 dark:border-slate-800 rounded-2xl w-full max-w-md mb-8">
-                        <p class="text-xs text-slate-500 uppercase tracking-wider font-semibold">Puntuación Total Consensuada</p>
-                        <p id="final-score-display" class="text-3xl font-extrabold text-indigo-600 dark:text-indigo-400 mt-2">4500 pts</p>
-                        <p class="text-[11px] text-slate-505 dark:text-slate-400 mt-2">Rango Alcanzado: <strong class="text-yellow-650 dark:text-yellow-400">Ingeniero Certificado de Planta Externa (Migtel Expert)</strong></p>
+                    <div class="bg-[#f0f9ff] dark:bg-slate-950/60 p-5 border border-sky-100 dark:border-sky-900 rounded-2xl w-full max-w-md mb-8">
+                        <p class="text-xs text-sky-600 uppercase tracking-wider font-semibold">Puntuación Total Consensuada</p>
+                        <p id="final-score-display" class="text-3xl font-extrabold text-[#0056b3] dark:text-[#00a8e8] mt-2">4500 pts</p>
+                        <p class="text-[11px] text-sky-600 dark:text-sky-400 mt-2">Rango Alcanzado: <strong class="text-[#007cc0] dark:text-[#00a8e8]">Ingeniero Certificado de Planta Externa (Migtel Expert)</strong></p>
                     </div>
 
-                    <button onclick="restartEntireGame()" class="px-8 py-3.5 bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-700 hover:to-violet-700 text-white font-bold rounded-xl flex items-center gap-2 transition-all">
+                    <button onclick="restartEntireGame()" class="px-8 py-3.5 bg-gradient-to-r from-[#007cc0] to-[#0056b3] hover:from-[#0056b3] hover:to-[#003d82] text-white font-bold rounded-xl flex items-center gap-2 transition-all">
                         Reiniciar Entrenamiento <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
                     </button>
                 </div>
@@ -594,25 +588,25 @@
 
     <!-- VENTANA MODAL DE DETALLES Y AYUDA INTERACTIVA -->
     <div id="help-modal" class="hidden fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 max-w-lg w-full shadow-2xl relative transition-all duration-300">
+        <div class="bg-white dark:bg-[#07162c] border border-sky-100 dark:border-sky-950 rounded-3xl p-6 max-w-lg w-full shadow-2xl relative transition-all duration-300">
             <!-- Botón Cerrar -->
             <button onclick="closeHelpModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 dark:hover:text-white">
                 <i data-lucide="x" class="w-5 h-5"></i>
             </button>
             
             <div class="flex items-center gap-3 mb-4">
-                <div class="bg-indigo-100 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 p-2 rounded-xl">
+                <div class="bg-sky-50 dark:bg-sky-950/50 text-[#007cc0] dark:text-sky-400 p-2 rounded-xl">
                     <i id="modal-icon" data-lucide="book-open" class="w-6 h-6"></i>
                 </div>
                 <h3 id="modal-title" class="text-xl font-bold text-slate-900 dark:text-white header-font">Explicación Técnica</h3>
             </div>
             
-            <div id="modal-content" class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed space-y-3 max-h-96 overflow-y-auto pr-1">
+            <div id="modal-content" class="text-sm text-sky-850 dark:text-sky-300 leading-relaxed space-y-3 max-h-96 overflow-y-auto pr-1">
                 <!-- Contenido dinámico -->
             </div>
 
-            <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 flex justify-end">
-                <button onclick="closeHelpModal()" class="px-5 py-2.5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-xs font-bold rounded-xl hover:bg-slate-800 dark:hover:bg-slate-100 transition-colors">
+            <div class="mt-6 pt-4 border-t border-sky-100 dark:border-sky-900 flex justify-end">
+                <button onclick="closeHelpModal()" class="px-5 py-2.5 bg-slate-900 dark:bg-white text-white dark:text-[#07162c] text-xs font-bold rounded-xl hover:bg-slate-800 dark:hover:bg-slate-100 transition-colors">
                     Entendido
                 </button>
             </div>
@@ -620,10 +614,10 @@
     </div>
 
     <!-- PIE DE PAGINA -->
-    <footer class="border-t border-slate-200 dark:border-slate-900 bg-white/50 dark:bg-slate-950/85 px-4 py-4 mt-auto transition-colors duration-300">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center text-xs text-slate-500 gap-3">
+    <footer class="border-t border-sky-100 dark:border-sky-950 bg-sky-50 dark:bg-[#030a14] py-6 px-4 transition-colors duration-300">
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center text-xs text-sky-600 dark:text-sky-500 gap-3">
             <p>Copyright 2026 © Comunicaciones Migtel C.A. RIF: J-40212711-1.</p>
-            <p>Hecho para el aprendizaje interactivo de redes de fibra óptica FTTH y GPON.</p>
+            <p>Soporte de Planta Externa, Planta Interna e Innovación Digital.</p>
         </div>
     </footer>
 
@@ -727,7 +721,7 @@
                         <li><strong>NAP (Network Access Point):</strong> Segundo nivel. Es la caja exterior cerca de las fachadas o postes desde donde se hace el tendido final al cliente.</li>
                     </ul>
                     <p class="mt-2"><strong>Presupuesto de Potencia (Link Budget):</strong> La OLT emite con potencia positiva (entre +1 y +9 dBm). La señal se degrada por splitters, conectores y distancia (0.35 dB por km en fibra monomodo de 1310/1490nm).</p>
-                    <div class="p-3 bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-200 dark:border-indigo-900/50 rounded-xl text-xs">
+                    <div class="p-3 bg-sky-50 dark:bg-sky-950/40 border border-sky-200 dark:border-sky-900 rounded-xl text-xs">
                         <strong>Rango Saludable de Operación:</strong> La ONT (módem de cliente) requiere una señal entre <strong>-15 dBm y -27 dBm</strong>. Si es más alta se satura; si es menor se desconecta.
                     </div>
                 `
@@ -788,21 +782,23 @@
             });
         };
 
-        // --- MODO CLARO / OSCURO ---
+        // --- MODO CLARO / OSCURO (Adaptado a la Landing Page) ---
         function toggleTheme() {
             const body = document.getElementById('body-theme');
             const isDark = body.classList.contains('dark');
             
             if (isDark) {
-                body.classList.remove('dark', 'bg-slate-950', 'text-slate-100');
-                body.classList.add('bg-slate-50', 'text-slate-900');
-                // Iconos
+                // Cambiar a Modo Claro
+                body.classList.remove('dark', 'text-slate-100');
+                body.classList.remove('bg-[#050f1e]');
+                body.classList.add('bg-[#f0f9ff]', 'text-slate-900');
                 document.getElementById('theme-icon-light').classList.remove('dark:hidden');
                 document.getElementById('theme-icon-dark').classList.add('dark:block');
             } else {
-                body.classList.add('dark', 'bg-slate-955', 'text-slate-100');
-                body.classList.remove('bg-slate-50', 'text-slate-900');
-                body.classList.add('bg-slate-950');
+                // Cambiar a Modo Oscuro
+                body.classList.add('dark', 'text-slate-100');
+                body.classList.remove('bg-[#f0f9ff]', 'text-slate-900');
+                body.classList.add('bg-[#050f1e]');
             }
         }
 
@@ -880,20 +876,19 @@
                 const num = btn.querySelector('.step-num');
                 
                 if (i === currentStep) {
-                    btn.className = "flex items-center gap-3 p-2.5 rounded-xl border border-indigo-500 bg-indigo-50/70 dark:bg-indigo-950/20 text-indigo-950 dark:text-white transition-all";
-                    num.className = "step-num w-6 h-6 rounded-full bg-indigo-600 text-white flex items-center justify-center text-xs font-bold ring-2 ring-indigo-400/50";
+                    btn.className = "flex items-center gap-3 p-2.5 rounded-xl border border-[#007cc0] bg-sky-50/70 dark:bg-sky-950/20 text-indigo-950 dark:text-white transition-all";
+                    num.className = "step-num w-6 h-6 rounded-full bg-[#007cc0] text-white flex items-center justify-center text-xs font-bold ring-2 ring-sky-400/50";
                 } else if (i < currentStep) {
-                    btn.className = "flex items-center gap-3 p-2.5 rounded-xl border border-emerald-500/20 bg-emerald-50 dark:bg-emerald-950/10 text-emerald-600 dark:text-emerald-400 transition-all";
+                    btn.className = "flex items-center gap-3 p-2.5 rounded-xl border border-emerald-550/20 bg-emerald-50 dark:bg-emerald-950/10 text-emerald-600 dark:text-emerald-400 transition-all";
                     num.className = "step-num w-6 h-6 rounded-full bg-emerald-600 text-white flex items-center justify-center text-xs font-bold";
                 } else {
-                    btn.className = "flex items-center gap-3 p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/20 text-slate-400 dark:text-slate-600 transition-all";
-                    num.className = "step-num w-6 h-6 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-xs font-bold";
+                    btn.className = "flex items-center gap-3 p-2.5 rounded-xl border border-sky-100 dark:border-sky-950 bg-sky-50/20 dark:bg-sky-950/20 text-sky-450 dark:text-sky-700 transition-all";
+                    num.className = "step-num w-6 h-6 rounded-full bg-sky-200 dark:bg-sky-900 flex items-center justify-center text-xs font-bold text-slate-500";
                 }
             }
         }
 
         // --- ETAPA 1: FTTH CON CO-DIVISION (FDT & NAP) ---
-        // Se encarga de evaluar las pérdidas de potencia óptica combinadas
         function selectFDTSplitter(ratio, loss) {
             selectedFDTRatio = ratio;
             selectedFDTLoss = loss;
@@ -902,9 +897,9 @@
             ratios.forEach(r => {
                 const btn = document.getElementById(`fdt-btn-${r}`);
                 if (r === ratio) {
-                    btn.className = "p-2 border border-indigo-500 rounded-xl text-[11px] bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-300 font-bold shadow-sm shadow-indigo-500/10";
+                    btn.className = "p-2 border border-[#007cc0] rounded-xl text-[11px] bg-sky-50 dark:bg-sky-950/50 text-[#0056b3] dark:text-[#00a8e8] font-bold shadow-sm shadow-sky-500/10";
                 } else {
-                    btn.className = "p-2 border border-slate-200 dark:border-slate-800 rounded-xl text-[11px] text-slate-700 dark:text-slate-300 hover:border-indigo-500 bg-white dark:bg-slate-900 transition-all font-semibold";
+                    btn.className = "p-2 border border-sky-200 dark:border-sky-900 rounded-xl text-[11px] text-sky-800 dark:text-sky-200 hover:border-[#007cc0] bg-white dark:bg-[#07162c] transition-all font-semibold";
                 }
             });
 
@@ -922,9 +917,9 @@
             ratios.forEach(r => {
                 const btn = document.getElementById(`nap-btn-${r}`);
                 if (r === ratio) {
-                    btn.className = "p-2 border border-purple-500 rounded-xl text-[11px] bg-purple-50 dark:bg-purple-950/50 text-purple-600 dark:text-purple-300 font-bold shadow-sm shadow-purple-500/10";
+                    btn.className = "p-2 border border-[#007cc0] rounded-xl text-[11px] bg-sky-50 dark:bg-sky-950/50 text-[#0056b3] dark:text-[#00a8e8] font-bold shadow-sm shadow-sky-500/10";
                 } else {
-                    btn.className = "p-2 border border-slate-200 dark:border-slate-800 rounded-xl text-[11px] text-slate-700 dark:text-slate-300 hover:border-purple-500 bg-white dark:bg-slate-900 transition-all font-semibold";
+                    btn.className = "p-2 border border-sky-200 dark:border-sky-900 rounded-xl text-[11px] text-sky-800 dark:text-sky-200 hover:border-[#007cc0] bg-white dark:bg-[#07162c] transition-all font-semibold";
                 }
             });
 
@@ -938,9 +933,11 @@
             const oltPower = parseFloat(document.getElementById('input-olt-power').value);
             document.getElementById('val-olt-power').innerText = `+${oltPower} dBm`;
 
+            // Pérdidas por Km (0.35 dB / km)
             const cableLoss = level.distance * 0.35;
             document.getElementById('val-loss-cable').innerText = `-${cableLoss.toFixed(2)} dB`;
 
+            // Pérdida total y potencia final en la ONT del cliente
             const totalSplittingLoss = selectedFDTLoss + selectedNAPLoss;
             const connectionLoss = 0.8; 
             const totalLoss = totalSplittingLoss + cableLoss + connectionLoss;
@@ -1011,7 +1008,7 @@
             laserCtx.fillRect(0, h - 25, w, 25);
 
             // Guía central del Core
-            laserCtx.strokeStyle = 'rgba(99, 102, 241, 0.2)';
+            laserCtx.strokeStyle = 'rgba(0, 168, 232, 0.2)';
             laserCtx.lineWidth = 1;
             laserCtx.beginPath();
             laserCtx.moveTo(0, h/2);
@@ -1065,7 +1062,7 @@
             isLaserSuccess = false;
 
             if (laserLoss <= 1.5) {
-                laserColor = 'rgba(16, 185, 129, 0.9)';
+                laserColor = 'rgba(0, 168, 232, 0.9)'; // Cian característico de MigTel
                 isLaserSuccess = true;
                 document.getElementById('laser-loss').className = "font-bold text-emerald-500";
             } else if (laserLoss <= 3.0) {
@@ -1085,7 +1082,7 @@
             laserCtx.stroke();
             laserCtx.shadowBlur = 0;
 
-            laserCtx.fillStyle = '#6366f1';
+            laserCtx.fillStyle = '#007cc0';
             laserCtx.beginPath();
             laserCtx.arc(15, h/2, 6, 0, Math.PI * 2);
             laserCtx.fill();
@@ -1096,9 +1093,10 @@
             laserCtx.fill();
         }
 
+        // --- ETAPA 2 CONTINUAR ---
         function submitLaserStep() {
             if (!isLaserSuccess) {
-                alert("La pérdida es excesiva debido a múltiples rebotes de luz. Ajusta el ángulo del láser para garantizar Reflexión Total Interna.");
+                alert("La pérdida es excesiva debido a múltiples rebotes de luz. Ajusta el ángulo del láser para garantizar la Reflexión Total Interna.");
                 return;
             }
 
@@ -1153,7 +1151,7 @@
             }
 
             const offsetYText = document.getElementById('txt-offset-y');
-            offsetYText.className = parseFloat(offsetMicro) === 0 ? "font-bold text-emerald-500" : "font-bold text-slate-700 dark:text-slate-300";
+            offsetYText.className = parseFloat(offsetMicro) === 0 ? "font-bold text-emerald-500" : "font-bold text-sky-800 dark:text-sky-300";
         }
 
         function triggerElectricArc() {
@@ -1223,7 +1221,7 @@
             otdrCtx.fillStyle = '#090d16';
             otdrCtx.fillRect(0, 0, w, h);
 
-            otdrCtx.strokeStyle = 'rgba(30, 41, 59, 0.4)';
+            otdrCtx.strokeStyle = 'rgba(0, 168, 232, 0.15)';
             otdrCtx.lineWidth = 1;
             
             for (let y = 20; y < h; y += 30) {
@@ -1239,7 +1237,7 @@
                 otdrCtx.stroke();
             }
 
-            otdrCtx.strokeStyle = '#38bdf8';
+            otdrCtx.strokeStyle = '#00a8e8';
             otdrCtx.lineWidth = 2.5;
             otdrCtx.beginPath();
 
