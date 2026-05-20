@@ -1,0 +1,1365 @@
+!DOCTYPE html
+html lang=es class=h-full
+head
+    meta charset=UTF-8
+    meta name=viewport content=width=device-width, initial-scale=1.0
+    titleMigtel - Fibra Mastertitle
+    !-- Tailwind CSS --
+    script src=httpscdn.tailwindcss.comscript
+    !-- Lucide Icons --
+    script src=httpsunpkg.comlucide@latestscript
+    !-- Google Fonts --
+    link href=httpsfonts.googleapis.comcss2family=Space+Groteskwght@400;500;600;700&family=Plus+Jakarta+Sanswght@400;500;600;700&display=swap rel=stylesheet
+    style
+        body {
+            font-family 'Plus Jakarta Sans', sans-serif;
+            transition background-color 0.3s, color 0.3s;
+        }
+        .header-font {
+            font-family 'Space Grotesk', sans-serif;
+        }
+         Custom scrollbar 
+        -webkit-scrollbar {
+            width 6px;
+        }
+        -webkit-scrollbar-track {
+            background rgba(15, 23, 42, 0.05);
+        }
+        .dark -webkit-scrollbar-track {
+            background #0f172a;
+        }
+        -webkit-scrollbar-thumb {
+            background rgba(30, 41, 59, 0.2);
+            border-radius 3px;
+        }
+        .dark -webkit-scrollbar-thumb {
+            background #1e293b;
+        }
+        -webkit-scrollbar-thumbhover {
+            background rgba(51, 65, 85, 0.4);
+        }
+        .dark -webkit-scrollbar-thumbhover {
+            background #334155;
+        }
+         Canvas glowing line 
+        .glowing-laser {
+            filter drop-shadow(0 0 8px rgba(239, 68, 68, 0.8));
+        }
+        .success-laser {
+            filter drop-shadow(0 0 12px rgba(16, 185, 129, 0.9));
+        }
+         Pulse Animation 
+        @keyframes pulse-light {
+            0%, 100% { opacity 0.6; transform scale(1); }
+            50% { opacity 1; transform scale(1.03); }
+        }
+        .pulse-light-effect {
+            animation pulse-light 2.5s infinite ease-in-out;
+        }
+    style
+head
+body class=min-h-screen flex flex-col justify-between bg-slate-50 text-slate-900 transition-colors duration-300 id=body-theme
+
+    !-- HEADER  BARRA DE NAVEGACIÓN --
+    header class=border-b border-slate-200 darkborder-slate-800 bg-white85 darkbg-slate-90080 backdrop-blur-md sticky top-0 z-40 px-4 py-3 shadow-sm transition-colors duration-300
+        div class=max-w-6xl mx-auto flex flex-col mdflex-row justify-between items-center gap-3
+            div class=flex items-center gap-3 w-full mdw-auto justify-between mdjustify-start
+                div class=flex items-center gap-3
+                    div class=bg-indigo-600 text-white p-2 rounded-xl shadow-lg shadow-indigo-50030
+                        i data-lucide=zap class=w-6 h-6 text-yellow-300i
+                    div
+                    div
+                        h1 class=text-xl font-bold tracking-tight header-font text-slate-900 darktext-white flex items-center gap-2
+                            MIGTEL span class=text-xs bg-indigo-50010 text-indigo-600 darktext-indigo-400 px-2.5 py-0.5 rounded-full border border-indigo-50030 font-semiboldFIBRA MASTER v2.0span
+                        h1
+                        p class=text-xs text-slate-500 darktext-slate-400Entrenamiento interactivo en redes ópticasp
+                    div
+                div
+                !-- Botón de Tema para Mobile --
+                button onclick=toggleTheme() class=mdhidden p-2 rounded-xl border border-slate-200 darkborder-slate-800 text-slate-600 darktext-slate-300 hoverbg-slate-100 darkhoverbg-slate-800 transition-colors
+                    i data-lucide=sun class=w-5 h-5 darkhiddeni
+                    i data-lucide=moon class=w-5 h-5 hidden darkblock text-yellow-300i
+                button
+            div
+            
+            !-- Indicadores Globales & Switch de Tema Desktop --
+            div class=flex items-center justify-between mdjustify-end gap-4 w-full mdw-auto
+                div class=flex items-center gap-4
+                    div class=flex items-center gap-2
+                        span class=text-[10px] mdtext-xs text-slate-500 darktext-slate-400 uppercase tracking-wider font-boldNivelspan
+                        span id=level-display class=font-bold text-indigo-600 darktext-indigo-400 text-xs mdtext-sm bg-indigo-50 darkbg-indigo-95050 border border-indigo-200 darkborder-indigo-90050 px-2.5 py-1 rounded-md1. Cliente Residencialspan
+                    div
+                    div class=flex items-center gap-2
+                        span class=text-[10px] mdtext-xs text-slate-500 darktext-slate-400 uppercase tracking-wider font-boldPuntosspan
+                        span id=score-display class=font-bold text-emerald-600 darktext-emerald-400 text-xs mdtext-sm bg-emerald-50 darkbg-emerald-95050 border border-emerald-200 darkborder-emerald-90050 px-2.5 py-1 rounded-md0 ptsspan
+                    div
+                div
+
+                !-- Botón de Tema Desktop --
+                button onclick=toggleTheme() class=hidden mdflex p-2 rounded-xl border border-slate-200 darkborder-slate-800 text-slate-600 darktext-slate-300 hoverbg-slate-100 darkhoverbg-slate-800 transition-colors title=Cambiar Modo de Color
+                    i id=theme-icon-light data-lucide=sun class=w-5 h-5 darkhiddeni
+                    i id=theme-icon-dark data-lucide=moon class=w-5 h-5 hidden darkblock text-yellow-300i
+                button
+            div
+        div
+    header
+
+    !-- CONTENEDOR PRINCIPAL --
+    main class=flex-grow max-w-6xl w-full mx-auto px-4 py-6 flex flex-col justify-center
+        
+        !-- PANTALLA DE INICIO (BIENVENIDA) --
+        div id=welcome-screen class=flex-grow flex flex-col items-center justify-center text-center max-w-2xl mx-auto py-12
+            div class=w-24 h-24 bg-gradient-to-tr from-indigo-600 to-violet-500 rounded-3xl flex items-center justify-center shadow-2xl shadow-indigo-50020 mb-6 pulse-light-effect
+                i data-lucide=route class=w-12 h-12 text-whitei
+            div
+            h2 class=text-3xl mdtext-4xl font-extrabold header-font text-slate-900 darktext-white mb-4 tracking-tight leading-tight
+                Domina el Despliegue de Fibra Óptica con span class=text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-violet-500 darkfrom-indigo-400 darkto-violet-400Migtelspan
+            h2
+            p class=text-slate-600 darktext-slate-300 mb-8 leading-relaxed text-sm mdtext-base
+                Conviértete en Ingeniero de Planta Externa. Enfréntate a 3 escenarios reales de Migtel completando las 4 etapas críticas de un despliegue de telecomunicaciones planificación con doble división FDTNAP, física de guiado óptico, fusión milimétrica de precisión y diagnóstico por reflectometría (OTDR).
+            p
+            
+            div class=grid grid-cols-2 mdgrid-cols-4 gap-4 w-full mb-8
+                div class=p-3 bg-white darkbg-slate-90050 border border-slate-200 darkborder-slate-800 rounded-xl text-center shadow-sm
+                    div class=text-indigo-600 darktext-indigo-400 mb-1i data-lucide=network class=mx-auto w-5 h-5idiv
+                    p class=text-xs font-semibold text-slate-700 darktext-slate-3001. Planificar FTTHp
+                div
+                div class=p-3 bg-white darkbg-slate-90050 border border-slate-200 darkborder-slate-800 rounded-xl text-center shadow-sm
+                    div class=text-amber-500 darktext-amber-400 mb-1i data-lucide=activity class=mx-auto w-5 h-5idiv
+                    p class=text-xs font-semibold text-slate-700 darktext-slate-3002. Guiar la Luzp
+                div
+                div class=p-3 bg-white darkbg-slate-90050 border border-slate-200 darkborder-slate-800 rounded-xl text-center shadow-sm
+                    div class=text-emerald-600 darktext-emerald-400 mb-1i data-lucide=scissors class=mx-auto w-5 h-5idiv
+                    p class=text-xs font-semibold text-slate-700 darktext-slate-3003. Fusión de Núcleop
+                div
+                div class=p-3 bg-white darkbg-slate-90050 border border-slate-200 darkborder-slate-800 rounded-xl text-center shadow-sm
+                    div class=text-rose-600 darktext-rose-400 mb-1i data-lucide=bar-chart-3 class=mx-auto w-5 h-5idiv
+                    p class=text-xs font-semibold text-slate-700 darktext-slate-3004. Diagnóstico OTDRp
+                div
+            div
+
+            button onclick=startGame() class=px-8 py-4 bg-gradient-to-r from-indigo-600 to-indigo-700 hoverfrom-indigo-700 hoverto-indigo-800 text-white font-bold rounded-xl shadow-lg shadow-indigo-50020 transition-all duration-300 transform hover-translate-y-0.5 activetranslate-y-0 flex items-center gap-3
+                Comenzar Entrenamiento i data-lucide=arrow-right class=w-5 h-5i
+            button
+        div
+
+        !-- AREA DE JUEGO (ETAPAS) --
+        div id=game-area class=hidden flex-grow flex flex-col lgflex-row gap-6
+            
+            !-- PANEL LATERAL DE PROGRESO Y CONTROL --
+            div class=lgw-14 flex flex-col gap-4
+                
+                !-- Tarjeta del Nivel Actual --
+                div class=bg-white darkbg-slate-900 border border-slate-200 darkborder-slate-800 rounded-2xl p-5 shadow-lg transition-colors duration-300
+                    div class=text-xs font-bold text-slate-400 darktext-slate-500 uppercase tracking-widest mb-1Misión Actualdiv
+                    h3 id=mission-title class=text-lg font-bold text-slate-955 darktext-white mb-2 header-fontConexión Residencialh3
+                    p id=mission-desc class=text-xs text-slate-600 darktext-slate-400 leading-relaxed mb-4Instalación simple a 1 casa unifamiliar. El presupuesto óptico permite un margen holgado, pero cuida los ángulos de curvatura.p
+                    
+                    hr class=border-slate-200 darkborder-slate-800 mb-4 
+                    
+                    !-- Pasos  Subniveles --
+                    div class=flex flex-col gap-3
+                        !-- Paso 1 --
+                        div id=step-btn-1 class=flex items-center gap-3 p-2.5 rounded-xl border border-indigo-500 bg-indigo-50 darkbg-indigo-95020 text-slate-800 darktext-white transition-all
+                            div class=step-num w-6 h-6 rounded-full bg-indigo-600 text-white flex items-center justify-center text-xs font-bold1div
+                            div class=text-left
+                                p class=text-xs font-boldEstrategia FTTHp
+                                p class=text-[10px] text-slate-500 darktext-slate-400Balance FDT + NAPp
+                            div
+                        div
+                        !-- Paso 2 --
+                        div id=step-btn-2 class=flex items-center gap-3 p-2.5 rounded-xl border border-slate-200 darkborder-slate-800 bg-slate-50 darkbg-slate-95040 text-slate-400 darktext-slate-600 transition-all
+                            div class=step-num w-6 h-6 rounded-full bg-slate-200 darkbg-slate-800 flex items-center justify-center text-xs font-bold2div
+                            div class=text-left
+                                p class=text-xs font-boldEl Camino de la Luzp
+                                p class=text-[10px] text-slate-500 darktext-slate-400Manejo de refracciónp
+                            div
+                        div
+                        !-- Paso 3 --
+                        div id=step-btn-3 class=flex items-center gap-3 p-2.5 rounded-xl border border-slate-200 darkborder-slate-800 bg-slate-50 darkbg-slate-95040 text-slate-400 darktext-slate-600 transition-all
+                            div class=step-num w-6 h-6 rounded-full bg-slate-200 darkbg-slate-800 flex items-center justify-center text-xs font-bold3div
+                            div class=text-left
+                                p class=text-xs font-boldFusión de Núcleosp
+                                p class=text-[10px] text-slate-500 darktext-slate-400Operación de precisiónp
+                            div
+                        div
+                        !-- Paso 4 --
+                        div id=step-btn-4 class=flex items-center gap-3 p-2.5 rounded-xl border border-slate-200 darkborder-slate-800 bg-slate-50 darkbg-slate-95040 text-slate-400 darktext-slate-600 transition-all
+                            div class=step-num w-6 h-6 rounded-full bg-slate-200 darkbg-slate-800 flex items-center justify-center text-xs font-bold4div
+                            div class=text-left
+                                p class=text-xs font-boldInspección OTDRp
+                                p class=text-[10px] text-slate-500 darktext-slate-400Análisis y depuraciónp
+                            div
+                        div
+                    div
+                div
+
+                !-- Tarjeta de Info  Ayuda Técnica de Fibra --
+                div class=bg-white darkbg-slate-90040 border border-slate-200 darkborder-slate-800 rounded-2xl p-4 flex-grow flex flex-col justify-between shadow-md transition-colors duration-300
+                    div
+                        div class=flex items-center gap-2 text-indigo-600 darktext-indigo-400 mb-2
+                            i data-lucide=help-circle class=w-4 h-4i
+                            span class=text-xs font-bold uppercase tracking-widerConcepto Clavespan
+                        div
+                        h4 id=tip-title class=text-xs font-bold text-slate-900 darktext-white mb-1Pérdida por Splittingh4
+                        p id=tip-desc class=text-xs text-slate-600 darktext-slate-400 leading-relaxedCada vez que divides una señal de fibra óptica usando un splitter pasivo, atenuas la señal. Un splitter 18 genera una pérdida aproximada de ~9 a 10 dB.p
+                    div
+                    div class=mt-4 pt-3 border-t border-slate-200 darkborder-slate-800 flex justify-between items-center
+                        span class=text-[10px] text-slate-400 darktext-slate-500MIGTEL LEARNINGspan
+                        i data-lucide=award class=w-4 h-4 text-slate-300 darktext-slate-600i
+                    div
+                div
+            div
+
+            !-- PANEL CENTRAL DE JUEGO (CAMBIA DINÁMICAMENTE) --
+            div class=lgw-34 flex flex-col bg-white darkbg-slate-900 border border-slate-200 darkborder-slate-800 rounded-3xl p-6 shadow-xl relative overflow-hidden transition-colors duration-300
+                
+                !-- SUB-PANTALLA 1 ESTRATEGIA FTTH (SOPORTA DOBLE DIVISIÓN FDT + NAP) --
+                div id=screen-ftth class=flex-grow flex flex-col justify-between
+                    div
+                        div class=flex justify-between items-center
+                            span class=text-xs bg-indigo-50010 text-indigo-600 darktext-indigo-400 px-2.5 py-1 rounded-full border border-indigo-50020 font-semiboldETAPA 1 ESTRATEGIA FTTHspan
+                            !-- Botón de ayuda --
+                            button onclick=openHelpModal('ftth') class=p-1.5 text-slate-400 hovertext-indigo-600 darkhovertext-indigo-400 transition-colors title=Ver explicación de la etapa
+                                i data-lucide=help-circle class=w-5 h-5i
+                            button
+                        div
+                        h3 class=text-2xl font-bold text-slate-900 darktext-white header-font mt-3 mb-1Cálculo de Presupuesto Óptico (Doble División)h3
+                        p class=text-sm text-slate-600 darktext-slate-400GPON típico utiliza cascada Primer Splitter en Caja de Distribución (strong class=text-indigo-600 darktext-indigo-400FDTstrong) y Segundo en Caja de Acceso (strong class=text-purple-600 darktext-purple-400NAPstrong). Consigue una potencia en la terminal (ONT) de strong class=text-emerald-500-15 a -27 dBmstrong.p
+                        
+                        div class=grid mdgrid-cols-2 gap-6 mt-6
+                            !-- Formulario  Opciones --
+                            div class=space-y-4
+                                !-- Potencia de salida OLT --
+                                div class=p-4 bg-slate-50 darkbg-slate-95060 border border-slate-200 darkborder-slate-800 rounded-2xl
+                                    div class=flex justify-between items-center mb-1
+                                        label class=block text-xs text-slate-600 darktext-slate-400 font-boldPotencia de salida OLT (Central)label
+                                        span id=val-olt-power class=text-xs font-bold text-indigo-600 darktext-indigo-400+5 dBmspan
+                                    div
+                                    div class=flex items-center gap-3
+                                        input type=range id=input-olt-power min=1 max=9 step=1 value=5 class=w-full h-2 bg-slate-200 darkbg-slate-800 rounded-lg appearance-none cursor-pointer accent-indigo-500 oninput=updateFTTHevaluation()
+                                    div
+                                    div class=flex justify-between text-[10px] text-slate-400 mt-1
+                                        span+1 dBm (Mín)span
+                                        span+9 dBm (Máx)span
+                                    div
+                                div
+
+                                !-- Primer Splitter (FDT) --
+                                div class=p-4 bg-slate-50 darkbg-slate-95060 border border-slate-200 darkborder-slate-800 rounded-2xl
+                                    label class=block text-xs text-slate-600 darktext-slate-400 font-bold mb-21er Nivel Splitter FDT (Caja Distribución)label
+                                    div class=grid grid-cols-4 gap-2
+                                        button onclick=selectFDTSplitter(1, 0.0) id=fdt-btn-1 class=p-2 border border-slate-200 darkborder-slate-800 rounded-xl text-[11px] font-semibold transition-allDirecto (0dB)button
+                                        button onclick=selectFDTSplitter(2, 3.5) id=fdt-btn-2 class=p-2 border border-slate-200 darkborder-slate-800 rounded-xl text-[11px] font-semibold transition-all12 (-3.5dB)button
+                                        button onclick=selectFDTSplitter(4, 7.2) id=fdt-btn-4 class=p-2 border border-slate-200 darkborder-slate-800 rounded-xl text-[11px] font-semibold transition-all14 (-7.2dB)button
+                                        button onclick=selectFDTSplitter(8, 10.5) id=fdt-btn-8 class=p-2 border border-slate-200 darkborder-slate-800 rounded-xl text-[11px] font-semibold transition-all18 (-10.5dB)button
+                                    div
+                                div
+
+                                !-- Segundo Splitter (NAP) --
+                                div class=p-4 bg-slate-50 darkbg-slate-95060 border border-slate-200 darkborder-slate-800 rounded-2xl
+                                    label class=block text-xs text-slate-600 darktext-slate-400 font-bold mb-22do Nivel Splitter NAP (Caja Acceso Clientes)label
+                                    div class=grid grid-cols-3 gap-2
+                                        button onclick=selectNAPSplitter(4, 7.2) id=nap-btn-4 class=p-2 border border-slate-200 darkborder-slate-800 rounded-xl text-[11px] font-semibold transition-all14 (-7.2dB)button
+                                        button onclick=selectNAPSplitter(8, 10.5) id=nap-btn-8 class=p-2 border border-slate-200 darkborder-slate-800 rounded-xl text-[11px] font-semibold transition-all18 (-10.5dB)button
+                                        button onclick=selectNAPSplitter(16, 14.0) id=nap-btn-16 class=p-2 border border-slate-200 darkborder-slate-800 rounded-xl text-[11px] font-semibold transition-all116 (-14dB)button
+                                    div
+                                div
+                            div
+
+                            !-- Esquema visual del cálculo --
+                            div class=bg-slate-50 darkbg-slate-950 border border-slate-200 darkborder-slate-800 rounded-2xl p-5 flex flex-col justify-between
+                                div class=text-center py-2
+                                    div class=text-[10px] text-slate-400 darktext-slate-500 uppercase tracking-widest mb-1Diagrama GPON Cascadadiv
+                                    div class=flex items-center justify-center gap-1.5 mt-2 overflow-x-auto py-1
+                                        div class=p-1.5 bg-indigo-50 darkbg-indigo-95050 border border-indigo-200 darkborder-indigo-90050 rounded-lg text-[9px] font-bold whitespace-nowrapOLTdiv
+                                        div class=w-3 h-0.5 bg-slate-300 darkbg-slate-700div
+                                        div class=p-1.5 bg-indigo-50 darkbg-indigo-95050 border border-indigo-200 darkborder-indigo-90050 rounded-lg text-[9px] font-bold whitespace-nowrap id=diag-fdtFDT 12div
+                                        div class=w-3 h-0.5 bg-slate-300 darkbg-slate-700div
+                                        div class=p-1.5 bg-purple-50 darkbg-purple-95050 border border-purple-200 darkborder-purple-90050 rounded-lg text-[9px] font-bold whitespace-nowrap id=diag-napNAP 18div
+                                        div class=w-3 h-0.5 bg-slate-300 darkbg-slate-700div
+                                        div class=p-1.5 bg-emerald-50 darkbg-emerald-95050 border border-emerald-200 darkborder-emerald-90050 rounded-lg text-[9px] font-bold whitespace-nowrapONTdiv
+                                    div
+                                div
+
+                                div class=bg-white darkbg-slate-900 border border-slate-100 darkborder-slate-80080 rounded-xl p-4 space-y-1.5 text-xs
+                                    div class=flex justify-between text-slate-600 darktext-slate-400
+                                        spanLongitud de Fibraspan
+                                        span id=val-enlace-dist class=font-bold1.2 kmspan
+                                    div
+                                    div class=flex justify-between text-slate-600 darktext-slate-400
+                                        spanPérdida por distancia (0.35 dBkm)span
+                                        span id=val-loss-cable class=font-bold-0.42 dBspan
+                                    div
+                                    div class=flex justify-between text-slate-600 darktext-slate-400
+                                        spanPérdida FDTspan
+                                        span id=val-loss-fdt class=font-bold text-indigo-600 darktext-indigo-400-3.50 dBspan
+                                    div
+                                    div class=flex justify-between text-slate-600 darktext-slate-400
+                                        spanPérdida NAPspan
+                                        span id=val-loss-nap class=font-bold text-purple-600 darktext-purple-400-10.50 dBspan
+                                    div
+                                    div class=flex justify-between text-slate-600 darktext-slate-400
+                                        spanConectores  Pérdidas fijasspan
+                                        span class=font-bold-0.80 dBspan
+                                    div
+                                    hr class=border-slate-150 darkborder-slate-800 my-1
+                                    div class=flex justify-between text-sm
+                                        span class=font-bold text-slate-800 darktext-whitePotencia Recibida (ONT)span
+                                        span id=val-final-power class=font-bold text-rose-500-10.22 dBmspan
+                                    div
+                                    div id=ftth-status-badge class=mt-2 text-center text-[11px] font-bold py-1 px-3 rounded-full bg-red-100 darkbg-red-95040 border border-red-50030 text-red-600 darktext-red-400
+                                        SEÑAL DEMASIADO ALTA (Provoca saturación)
+                                    div
+                                div
+                            div
+                        div
+                    div
+
+                    div class=mt-6 pt-4 border-t border-slate-200 darkborder-slate-800 flex justify-end
+                        button onclick=submitFTTHStep() id=ftth-next-btn class=px-6 py-3 bg-indigo-600 hoverbg-indigo-700 disabledopacity-50 disabledcursor-not-allowed text-white text-xs font-bold rounded-xl flex items-center gap-2 transition-all
+                            Validar Diseño FTTH i data-lucide=shield-check class=w-4 h-4i
+                        button
+                    div
+                div
+
+                !-- SUB-PANTALLA 2 EL CAMINO DE LA LUZ --
+                div id=screen-laser class=hidden flex-grow flex flex-col justify-between
+                    div
+                        div class=flex justify-between items-center
+                            span class=text-xs bg-amber-50010 text-amber-600 darktext-amber-400 px-2.5 py-1 rounded-full border border-amber-50020 font-semiboldETAPA 2 EL CAMINO DE LA LUZspan
+                            !-- Botón de ayuda --
+                            button onclick=openHelpModal('laser') class=p-1.5 text-slate-400 hovertext-amber-600 darkhovertext-amber-400 transition-colors title=Ver explicación de la etapa
+                                i data-lucide=help-circle class=w-5 h-5i
+                            button
+                        div
+                        h3 class=text-2xl font-bold text-slate-900 darktext-white header-font mt-3 mb-1Control del Ángulo Crítico de Refracciónh3
+                        p class=text-sm text-slate-600 darktext-slate-400 mb-3Guía el haz de luz dentro de la fibra (núcleo). Ajusta el ángulo de emisión para asegurar la strong class=text-amber-500 darktext-amber-400Reflexión Total Internastrong sin exceder la curvatura o perderás señal en las paredes.p
+
+                        !-- Área de juego interactivo del láser --
+                        div class=relative w-full h-64 bg-slate-950 border border-slate-800 rounded-2xl overflow-hidden flex flex-col justify-between p-4
+                            !-- Canvas del juego del láser --
+                            canvas id=laserCanvas class=absolute top-0 left-0 w-full h-full z-10 pointer-events-nonecanvas
+                            
+                            !-- Dibujo de Interfaz y controles encimados de decoración --
+                            div class=flex justify-between text-[10px] text-slate-500 z-20 pointer-events-none uppercase tracking-wider
+                                spanEmisor OLTspan
+                                spanNúcleo de Fibra (Revestimiento externo)span
+                                spanReceptor ONTspan
+                            div
+
+                            !-- Botones de Control de Ángulo --
+                            div class=z-20 w-full mt-auto flex flex-col smflex-row justify-between items-center gap-4 bg-slate-90090 border border-slate-800 p-3 rounded-xl backdrop-blur-sm
+                                div class=flex items-center gap-3 w-full smw-auto
+                                    span class=text-xs font-bold text-slate-300 whitespace-nowrapÁngulo Láserspan
+                                    input type=range id=laser-angle min=5 max=45 value=20 class=w-full smw-48 h-2 bg-slate-850 rounded-lg appearance-none cursor-pointer accent-amber-500 oninput=drawLaserPath()
+                                    span id=laser-angle-val class=text-xs font-bold text-amber-40020°span
+                                div
+                                div class=flex items-center gap-4 text-xs text-white
+                                    div
+                                        span class=text-slate-400Rebotesspan
+                                        span id=laser-rebounds class=font-bold text-white0span
+                                    div
+                                    div
+                                        span class=text-slate-400Pérdida por curvaturaspan
+                                        span id=laser-loss class=font-bold text-emerald-4500.00 dBspan
+                                    div
+                                div
+                            div
+                        div
+                    div
+
+                    div class=mt-6 pt-4 border-t border-slate-200 darkborder-slate-800 flex justify-end
+                        button onclick=submitLaserStep() id=laser-next-btn class=px-6 py-3 bg-amber-600 hoverbg-amber-700 text-white text-xs font-bold rounded-xl flex items-center gap-2 transition-all
+                            Transmitir Señal Óptica i data-lucide=zap class=w-4 h-4i
+                        button
+                    div
+                div
+
+                !-- SUB-PANTALLA 3 CIRUJANO DE FIBRA (FUSIÓN) --
+                div id=screen-fusion class=hidden flex-grow flex flex-col justify-between
+                    div
+                        div class=flex justify-between items-center
+                            span class=text-xs bg-emerald-50010 text-emerald-600 darktext-emerald-400 px-2.5 py-1 rounded-full border border-emerald-50020 font-semiboldETAPA 3 FUSIÓN DE NÚCLEOspan
+                            !-- Botón de ayuda --
+                            button onclick=openHelpModal('fusion') class=p-1.5 text-slate-400 hovertext-emerald-600 darkhovertext-emerald-400 transition-colors title=Ver explicación de la etapa
+                                i data-lucide=help-circle class=w-5 h-5i
+                            button
+                        div
+                        h3 class=text-2xl font-bold text-slate-900 darktext-white header-font mt-3 mb-1Alineación por Núcleo en Fusiónh3
+                        p class=text-sm text-slate-600 darktext-slate-400Alinea con cuidado el núcleo (span class=text-indigo-600 darktext-indigo-400 font-boldcorespan de $9 mu m$) de ambas fibras. Las pérdidas deben ser menores a strong class=text-emerald-5000.30 dBstrong para que la soldadura sea aceptada.p
+
+                        div class=grid mdgrid-cols-5 gap-6 mt-6
+                            !-- Visualizador de la fusionadora --
+                            div class=mdcol-span-3 bg-slate-950 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between relative overflow-hidden h-72
+                                div class=absolute inset-0 bg-radial-gradient from-emerald-5005 to-transparent pointer-events-nonediv
+                                div class=flex justify-between items-center text-[10px] text-slate-500 font-mono tracking-widest z-10
+                                    spanVISTA NÚCLEO X-Yspan
+                                    span class=animate-pulse text-emerald-450● EN ALINEACIÓNspan
+                                div
+
+                                !-- Simulador Visual de Fibra --
+                                div class=relative flex-grow flex items-center justify-center my-4
+                                    !-- Eje central --
+                                    div class=absolute w-full h-0.5 border-t border-dashed border-slate-800 pointer-events-nonediv
+
+                                    !-- Fibra Izquierda (Fija) --
+                                    div class=absolute left-0 w-[42%] h-12 bg-slate-800 rounded-r border-y-2 border-slate-700 flex items-center justify-end
+                                        !-- Núcleo interno de la fibra --
+                                        div class=w-full h-2 bg-indigo-50070 shadow-lg shadow-indigo-50020div
+                                    div
+
+                                    !-- Fibra Derecha (Móvil) --
+                                    div id=movable-fiber class=absolute right-0 w-[42%] h-12 bg-slate-800 rounded-l border-y-2 border-slate-700 flex items-center transform transition-transform duration-100 style=transform translateY(12px);
+                                        !-- Núcleo interno móvil --
+                                        div class=w-full h-2 bg-indigo-50070 shadow-lg shadow-indigo-50020div
+                                    div
+
+                                    !-- Arco Eléctrico --
+                                    div id=electric-arc class=hidden absolute w-12 h-20 bg-cyan-40040 border border-cyan-30080 rounded-full filter blur-sm animate-ping z-20div
+                                div
+
+                                !-- Lecturas Digitales de la Fusionadora --
+                                div class=bg-slate-900 border border-slate-850 p-3 rounded-xl flex justify-between text-center text-xs font-mono z-10 text-white
+                                    div
+                                        p class=text-[10px] text-slate-500Desfase Yp
+                                        p id=txt-offset-y class=font-bold text-rose-4001.20 µmp
+                                    div
+                                    div
+                                        p class=text-[10px] text-slate-500Ángulo Cleaverp
+                                        p id=txt-cleaver-angle class=font-bold text-emerald-4000.2°p
+                                    div
+                                    div
+                                        p class=text-[10px] text-slate-500Pérdida Estimadap
+                                        p id=txt-loss-estimate class=font-bold text-amber-5000.32 dBp
+                                    div
+                                div
+                            div
+
+                            !-- Controles del Empalme --
+                            div class=mdcol-span-2 flex flex-col justify-between bg-slate-50 darkbg-slate-95040 border border-slate-200 darkborder-slate-800 rounded-2xl p-5
+                                div
+                                    h4 class=text-xs font-bold text-slate-505 darktext-slate-400 uppercase tracking-wider mb-3Servomotores de Alineaciónh4
+                                    
+                                    div class=space-y-4
+                                        !-- Control Desplazamiento Eje Y --
+                                        div
+                                            div class=flex justify-between text-xs mb-1
+                                                span class=text-slate-600 darktext-slate-400Ajuste Altura (Eje Y)span
+                                                span class=font-bold text-slate-900 darktext-white font-mono id=lbl-ajuste-y12pxspan
+                                            div
+                                            div class=flex gap-2
+                                                button onclick=adjustFiberY(-1) class=flex-grow py-2 bg-slate-200 darkbg-slate-800 hoverbg-slate-300 darkhoverbg-slate-700 text-slate-800 darktext-white font-bold rounded-lg text-xs transition-colors- Subirbutton
+                                                button onclick=adjustFiberY(1) class=flex-grow py-2 bg-slate-200 darkbg-slate-800 hoverbg-slate-300 darkhoverbg-slate-700 text-slate-800 darktext-white font-bold rounded-lg text-xs transition-colors+ Bajarbutton
+                                            div
+                                        div
+
+                                        !-- Botón de Disparo de Arco --
+                                        div class=pt-2
+                                            button onclick=triggerElectricArc() id=btn-fire-fusion class=w-full py-4 bg-gradient-to-r from-emerald-600 to-teal-600 hoverfrom-emerald-700 hoverto-teal-700 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-2 shadow-lg shadow-emerald-50010 transition-all
+                                                i data-lucide=flame class=w-4 h-4i Disparar Arco Eléctrico
+                                            button
+                                        div
+                                    div
+                                div
+
+                                div class=bg-white darkbg-slate-90060 p-3 border border-slate-200 darkborder-slate-800 rounded-xl mt-4
+                                    p class=text-[11px] text-slate-500 darktext-slate-400 leading-relaxed
+                                        strong class=text-slate-800 darktext-slate-300Tip técnicostrong El núcleo es apenas una fracción de un cabello. Si no está alineado a nivel sub-micrónico, la atenuación será severa.
+                                    p
+                                div
+                            div
+                        div
+                    div
+
+                    div class=mt-6 pt-4 border-t border-slate-200 darkborder-slate-800 flex justify-end
+                        button onclick=submitFusionStep() id=fusion-next-btn disabled class=px-6 py-3 bg-emerald-600 hoverbg-emerald-700 disabledopacity-50 disabledcursor-not-allowed text-white text-xs font-bold rounded-xl flex items-center gap-2 transition-all
+                            Siguiente Etapa i data-lucide=arrow-right class=w-4 h-4i
+                        button
+                    div
+                div
+
+                !-- SUB-PANTALLA 4 INSPECTOR OTDR --
+                div id=screen-otdr class=hidden flex-grow flex flex-col justify-between
+                    div
+                        div class=flex justify-between items-center
+                            span class=text-xs bg-rose-50010 text-rose-600 darktext-rose-400 px-2.5 py-1 rounded-full border border-rose-50020 font-semiboldETAPA 4 INSPECTOR OTDRspan
+                            !-- Botón de ayuda --
+                            button onclick=openHelpModal('otdr') class=p-1.5 text-slate-400 hovertext-rose-600 darkhovertext-rose-400 transition-colors title=Ver explicación de la etapa
+                                i data-lucide=help-circle class=w-5 h-5i
+                            button
+                        div
+                        h3 class=text-2xl font-bold text-slate-900 darktext-white header-font mt-3 mb-1Diagnóstico de Reflectometría Temporal (OTDR)h3
+                        p class=text-sm text-slate-600 darktext-slate-400 mb-2Identifica con precisión dónde ocurrió el evento anómalo (curvatura excesiva, conector sucio o rotura). Haz clic en la gran caída de la gráfica.p
+
+                        !-- Panel de visualización de Gráfica OTDR --
+                        div class=grid mdgrid-cols-4 gap-6 mt-4
+                            !-- Gráfico Dibujado con Canvas --
+                            div class=mdcol-span-3 bg-slate-950 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between relative h-64
+                                div class=flex justify-between items-center text-[10px] text-slate-500 font-mono tracking-wider
+                                    spanMEDIDOR DE ATENUACIÓN DEL ENLACE (dB)span
+                                    spanMIGTEL ANALYZERspan
+                                div
+                                div class=relative flex-grow my-2
+                                    canvas id=otdrCanvas class=w-full h-full cursor-crosshair border border-slate-900 rounded-lg bg-slate-950canvas
+                                div
+                                div class=flex justify-between text-[9px] text-slate-500 font-mono
+                                    span0.0 kmspan
+                                    spanDistancia en Kilómetrosspan
+                                    span id=otdr-max-dist2.0 kmspan
+                                div
+                            div
+
+                            !-- Herramientas de Diagnóstico --
+                            div class=flex flex-col justify-between bg-slate-50 darkbg-slate-95040 border border-slate-200 darkborder-slate-800 rounded-2xl p-4
+                                div
+                                    h4 class=text-xs font-bold text-slate-550 darktext-slate-400 uppercase tracking-wider mb-2Lectura de Anomalíash4
+                                    
+                                    div class=space-y-3
+                                        div class=p-3 bg-white darkbg-slate-900 border border-slate-200 darkborder-slate-800 rounded-xl text-xs
+                                            p class=text-slate-500 darktext-slate-400 font-semiboldEvento Sospechosop
+                                            p id=otdr-event-detected class=text-amber-500 font-bold mt-1Selecciona el punto de caída en la gráficap
+                                        div
+                                        
+                                        div class=p-3 bg-white darkbg-slate-900 border border-slate-200 darkborder-slate-800 rounded-xl text-[11px] leading-relaxed text-slate-500 darktext-slate-400
+                                            strong class=text-slate-800 darktext-slate-300Guía de Análisisstrong 
+                                            ul class=list-disc list-inside space-y-1 mt-1
+                                                listrong class=text-indigo-600 darktext-indigo-400Picos positivosstrong Conectores con pérdidas reflectivas.li
+                                                listrong class=text-rose-550Caídas directasstrong Dobleces críticos, empalmes deficientes o fisuras.li
+                                            ul
+                                        div
+                                    div
+                                div
+
+                                div id=otdr-feedback class=text-xs text-slate-700 darktext-slate-300 mt-2 font-semibolddiv
+                            div
+                        div
+                    div
+
+                    div class=mt-6 pt-4 border-t border-slate-200 darkborder-slate-800 flex justify-between items-center
+                        span class=text-xs text-slate-500Encuentra el punto de caída para autorizar la reparación.span
+                        button onclick=submitOTDRStep() id=otdr-next-btn disabled class=px-6 py-3 bg-rose-600 hoverbg-rose-700 disabledopacity-50 disabledcursor-not-allowed text-white text-xs font-bold rounded-xl flex items-center gap-2 transition-all
+                            Finalizar Misión i data-lucide=check-circle class=w-4 h-4i
+                        button
+                    div
+                div
+
+                !-- PANTALLA DE ÉXITO DE NIVEL  FIN DE JUEGO --
+                div id=screen-success class=hidden flex-grow flex flex-col items-center justify-center text-center py-6
+                    div class=w-20 h-20 bg-emerald-50010 text-emerald-600 darktext-emerald-400 border border-emerald-50020 rounded-full flex items-center justify-center mb-6 pulse-light-effect
+                        i data-lucide=award class=w-10 h-10i
+                    div
+                    h3 class=text-3xl font-extrabold text-slate-900 darktext-white header-font mb-2¡Contrato Completado!h3
+                    p id=success-message class=text-slate-600 darktext-slate-300 text-sm max-w-md mb-6 leading-relaxedFabuloso trabajo. Has optimizado el diseño FTTH de doble división.p
+
+                    div class=grid grid-cols-2 gap-4 w-full max-w-sm mb-8 bg-slate-50 darkbg-slate-95060 p-4 border border-slate-200 darkborder-slate-800 rounded-2xl
+                        div
+                            p class=text-[10px] text-slate-505 uppercase tracking-wider font-semiboldNivel Completadop
+                            p id=success-level-name class=text-sm font-bold text-slate-900 darktext-white mt-1Cliente Residencialp
+                        div
+                        div
+                            p class=text-[10px] text-slate-505 uppercase tracking-wider font-semiboldPuntos Añadidosp
+                            p id=success-points-added class=text-sm font-bold text-emerald-505 darktext-emerald-400 mt-1+1000 Ptsp
+                        div
+                    div
+
+                    button onclick=nextLevel() id=success-next-action-btn class=px-8 py-3.5 bg-indigo-600 hoverbg-indigo-700 text-white font-bold rounded-xl flex items-center gap-2 transition-all
+                        Siguiente Misión de Migtel i data-lucide=arrow-right class=w-4.5 h-4.5i
+                    button
+                div
+
+                !-- PANTALLA FIN DE JUEGO TOTAL --
+                div id=screen-gameover class=hidden flex-grow flex flex-col items-center justify-center text-center py-6
+                    div class=w-20 h-20 bg-indigo-50010 text-indigo-550 border border-indigo-50020 rounded-full flex items-center justify-center mb-6 pulse-light-effect
+                        i data-lucide=trophy class=w-10 h-10 text-yellow-500 darktext-yellow-400i
+                    div
+                    h3 class=text-4xl font-extrabold text-slate-900 darktext-white header-font mb-2¡Felicidades, Eres un Máster de la Fibra!h3
+                    p class=text-slate-600 darktext-slate-300 text-sm max-w-md mb-6 leading-relaxedHas completado todos los niveles de entrenamiento de Migtel de manera impecable. El sistema PON, los cálculos de atenuación, la precisión de acoplamiento óptico y el diagnóstico por reflectometría ya no tienen secretos para ti.p
+
+                    div class=bg-slate-50 darkbg-slate-95060 p-5 border border-slate-200 darkborder-slate-800 rounded-2xl w-full max-w-md mb-8
+                        p class=text-xs text-slate-500 uppercase tracking-wider font-semiboldPuntuación Total Consensuadap
+                        p id=final-score-display class=text-3xl font-extrabold text-indigo-600 darktext-indigo-400 mt-24500 ptsp
+                        p class=text-[11px] text-slate-505 darktext-slate-400 mt-2Rango Alcanzado strong class=text-yellow-650 darktext-yellow-400Ingeniero Certificado de Planta Externa (Migtel Expert)strongp
+                    div
+
+                    button onclick=restartEntireGame() class=px-8 py-3.5 bg-gradient-to-r from-indigo-600 to-violet-600 hoverfrom-indigo-700 hoverto-violet-700 text-white font-bold rounded-xl flex items-center gap-2 transition-all
+                        Reiniciar Entrenamiento i data-lucide=rotate-ccw class=w-4 h-4i
+                    button
+                div
+
+            div
+        div
+
+    main
+
+    !-- VENTANA MODAL DE DETALLES Y AYUDA INTERACTIVA --
+    div id=help-modal class=hidden fixed inset-0 bg-slate-95070 backdrop-blur-sm z-50 flex items-center justify-center p-4
+        div class=bg-white darkbg-slate-900 border border-slate-200 darkborder-slate-800 rounded-3xl p-6 max-w-lg w-full shadow-2xl relative transition-all duration-300
+            !-- Botón Cerrar --
+            button onclick=closeHelpModal() class=absolute top-4 right-4 text-slate-400 hovertext-slate-600 darkhovertext-white
+                i data-lucide=x class=w-5 h-5i
+            button
+            
+            div class=flex items-center gap-3 mb-4
+                div class=bg-indigo-100 darkbg-indigo-95050 text-indigo-600 darktext-indigo-400 p-2 rounded-xl
+                    i id=modal-icon data-lucide=book-open class=w-6 h-6i
+                div
+                h3 id=modal-title class=text-xl font-bold text-slate-900 darktext-white header-fontExplicación Técnicah3
+            div
+            
+            div id=modal-content class=text-sm text-slate-600 darktext-slate-300 leading-relaxed space-y-3 max-h-96 overflow-y-auto pr-1
+                !-- Contenido dinámico --
+            div
+
+            div class=mt-6 pt-4 border-t border-slate-100 darkborder-slate-800 flex justify-end
+                button onclick=closeHelpModal() class=px-5 py-2.5 bg-slate-900 darkbg-white text-white darktext-slate-900 text-xs font-bold rounded-xl hoverbg-slate-800 darkhoverbg-slate-100 transition-colors
+                    Entendido
+                button
+            div
+        div
+    div
+
+    !-- PIE DE PAGINA --
+    footer class=border-t border-slate-200 darkborder-slate-900 bg-white50 darkbg-slate-95085 px-4 py-4 mt-auto transition-colors duration-300
+        div class=max-w-6xl mx-auto flex flex-col mdflex-row justify-between items-center text-xs text-slate-500 gap-3
+            p© 2026 Migtel Telecomunicaciones. Todos los derechos reservados.p
+            pHecho para el aprendizaje interactivo de redes de fibra óptica FTTH y GPON.p
+        div
+    footer
+
+    !-- LOGICA DEL JUEGO --
+    script
+         --- VARIABLES DE ESTADO DEL JUEGO ---
+        let currentLevelIndex = 0;  0 Residencial, 1 Edificio, 2 Interurbano
+        let currentStep = 1;       1 FTTH, 2 Laser, 3 Fusion, 4 OTDR
+        let score = 0;
+
+         Base de Datos de Niveles  Casos
+        const levels = [
+            {
+                name 1. Cliente Residencial,
+                title Enlace Residencial,
+                desc Un cliente individual solicita servicio de internet directo por fibra (FTTH). Conéctalo configurando un presupuesto de OLT y splitters FDTNAP en cascada. Distancia de tendido 1.2 Km.,
+                distance 1.2,
+                perfectFDTRatio 2,
+                perfectFDTLoss 3.5,
+                perfectNAPRatio 8,
+                perfectNAPLoss 10.5,
+                laserAngleIdeal 18,
+                fusionTargetY 0,
+                otdrAnomalousKm 0.8,
+                points 1000,
+                tips {
+                    title Atenuación Permitida,
+                    desc La señal óptica del cliente debe llegar idealmente a -20 dBm. Si el enlace es menor de 2 kilómetros, un Splitter 18 ofrece el mejor balance de capacidad.
+                }
+            },
+            {
+                name 2. Edificio Multifamiliar,
+                title Edificio de Apartamentos,
+                desc Debes dotar de internet GPON a un complejo de 16 viviendas. Se requiere una división total de 132 usando FDT y NAP en cascada. Distancia 2.5 Km.,
+                distance 2.5,
+                perfectFDTRatio 4,
+                perfectFDTLoss 7.2,
+                perfectNAPRatio 8,
+                perfectNAPLoss 10.5,
+                laserAngleIdeal 35,
+                fusionTargetY 4,
+                otdrAnomalousKm 1.5,
+                points 1500,
+                tips {
+                    title Pérdida por Splitting Alto,
+                    desc Un splitter 116 tiene una pérdida teórica de 14 dB. Si la distancia es muy grande, necesitaremos aumentar la potencia de la OLT para compensar la caída.
+                }
+            },
+            {
+                name 3. Enlace Interurbano,
+                title Enlace Interurbano Core,
+                desc Conexión estratégica troncal de Migtel que conecta dos centrales suburbanas a gran distancia. Requiere mínima división para no extinguir el haz. Distancia 4.8 Km.,
+                distance 4.8,
+                perfectFDTRatio 1,  Directo
+                perfectFDTLoss 0.0,
+                perfectNAPRatio 4,
+                perfectNAPLoss 7.2,
+                laserAngleIdeal 10,
+                fusionTargetY -8,
+                otdrAnomalousKm 3.2,
+                points 2000,
+                tips {
+                    title Enlace de Larga Distancia,
+                    desc Para distancias muy largas donde el objetivo principal es transportar datos troncales, se evita dividir la señal usando splitters 12 para conservar la máxima potencia de luz posible.
+                }
+            }
+        ];
+
+         Estado de cada paso
+         FASE 1 FTTH (DOBLE DIVISION)
+        let selectedFDTLoss = 3.5;
+        let selectedFDTRatio = 2;
+        let selectedNAPLoss = 10.5;
+        let selectedNAPRatio = 8;
+        let finalCalculatedPower = 0;
+        let ftthValidated = false;
+
+         FASE 2 LASER
+        let laserLoss = 0;
+        let isLaserSuccess = false;
+
+         FASE 3 FUSIÓN
+        let fiberOffsetY = 12;  Desfase inicial en px
+        let cleaverAngle = 0.2;
+        let isFusionComplete = false;
+
+         FASE 4 OTDR
+        let identifiedAnomaly = false;
+        let otdrTargetX = 0;
+
+         Base de datos de ayuda técnica ()
+        const helpContent = {
+            ftth {
+                title Diseño de Red FTTH & GPON,
+                icon network,
+                html `
+                    pEn redes GPON (Gigabit Passive Optical Network) de strongMigtelstrong, la señal de la OLT se divide pasivamente para llegar a múltiples clientes.p
+                    p class=font-bold text-slate-900 darktext-white mt-2Doble División (Cascada)p
+                    ul class=list-disc list-inside space-y-1
+                        listrongFDT (Fiber Distribution Terminal)strong Primer nivel de división. Generalmente se sitúa en gabinetes del vecindario.li
+                        listrongNAP (Network Access Point)strong Segundo nivel. Es la caja exterior cerca de las fachadas o postes desde donde se hace el tendido final al cliente.li
+                    ul
+                    p class=mt-2strongPresupuesto de Potencia (Link Budget)strong La OLT emite con potencia positiva (entre +1 y +9 dBm). La señal se degrada por splitters, conectores y distancia (0.35 dB por km en fibra monomodo de 13101490nm).p
+                    div class=p-3 bg-indigo-50 darkbg-indigo-95040 border border-indigo-200 darkborder-indigo-90050 rounded-xl text-xs
+                        strongRango Saludable de Operaciónstrong La ONT (módem de cliente) requiere una señal entre strong-15 dBm y -27 dBmstrong. Si es más alta se satura; si es menor se desconecta.
+                    div
+                `
+            },
+            laser {
+                title Reflexión Total Interna (Física de Fibra),
+                icon activity,
+                html `
+                    pLa fibra óptica funciona guiando la luz por el strongNúcleo (Core)strong del cable sin que se escape al strongRevestimiento (Cladding)strong.p
+                    p class=mt-2Esto se logra aplicando el principio de strongReflexión Total Internastrong, que ocurre cuando el haz de luz incide dentro de la fibra en un ángulo menor al ángulo límite o crítico de refracción.p
+                    p class=font-bold text-slate-900 darktext-white mt-2Pérdida por Curvaturap
+                    ul class=list-disc list-inside space-y-1
+                        liSi el ángulo es óptimo, la luz rebota armónicamente con baja atenuación.li
+                        liÁngulos inadecuados (o microcurvaturas severas) causan que el haz supere el ángulo límite, provocando que la luz se refracte hacia el revestimiento exterior y se pierda.li
+                    ul
+                `
+            },
+            fusion {
+                title Alineación por Núcleo de Silicio,
+                icon scissors,
+                html `
+                    pPara unir dos extremos de fibra, se utiliza una strongfusionadora de arco eléctricostrong que suelda el vidrio de silicio a más de 1800°C.p
+                    p class=font-bold text-slate-900 darktext-white mt-2La importancia del alineamientop
+                    pEl núcleo por donde viaja la luz de fibra monomodo mide apenas strong9 micrasstrong (un décimo de un cabello humano). Cualquier desalineación de micras (eje X o Y) provocará que el haz rebote o se atenúe severamente.p
+                    p class=mt-2strongÁngulo de corte (Cleaver Angle)strong Antes de fusionar, las fibras deben cortarse de forma perfectamente perpendicular (idealmente 0.5°). Un mal corte genera burbujas de aire en la soldadura.p
+                `
+            },
+            otdr {
+                title Diagnóstico OTDR (Reflectometría),
+                icon bar-chart-3,
+                html `
+                    pUn strongOTDR (Optical Time Domain Reflectometer)strong inyecta pulsos de luz de alta potencia y mide la luz que regresa reflejada por imperfecciones en el cable.p
+                    p class=font-bold text-slate-900 darktext-white mt-2Cómo leer la firma reflectométricap
+                    ul class=list-disc list-inside space-y-1
+                        listrongPendiente descendente continuastrong Pérdida natural por dispersión del propio vidrio por kilómetro.li
+                        listrongPico vertical positivostrong Evento reflectivo causado por conectores o acopladores (el aire refleja luz de vuelta).li
+                        listrongCaída abrupta vertical sin picostrong Evento no reflectivo. Indica empalmes defectuosos, dobleces severos o fracturas del cable.li
+                    ul
+                `
+            }
+        };
+
+         --- INICIALIZACIÓN ---
+        window.onload = function() {
+            lucide.createIcons();
+             Asegurar estado de pantalla inicial
+            document.getElementById('welcome-screen').classList.remove('hidden');
+            document.getElementById('game-area').classList.add('hidden');
+
+             Resize de canvas láser ante cambios de pantalla
+            window.addEventListener('resize', () = {
+                if (currentStep === 2 && document.getElementById('screen-laser').classList.contains('hidden') === false) {
+                    initLaserCanvas();
+                }
+                if (currentStep === 4 && document.getElementById('screen-otdr').classList.contains('hidden') === false) {
+                    initOTDRStage();
+                }
+            });
+        };
+
+         --- MODO CLARO  OSCURO ---
+        function toggleTheme() {
+            const body = document.getElementById('body-theme');
+            const isDark = body.classList.contains('dark');
+            
+            if (isDark) {
+                body.classList.remove('dark', 'bg-slate-950', 'text-slate-100');
+                body.classList.add('bg-slate-50', 'text-slate-900');
+                 Iconos
+                document.getElementById('theme-icon-light').classList.remove('darkhidden');
+                document.getElementById('theme-icon-dark').classList.add('darkblock');
+            } else {
+                body.classList.add('dark', 'bg-slate-955', 'text-slate-100');
+                body.classList.remove('bg-slate-50', 'text-slate-900');
+                body.classList.add('bg-slate-950');
+            }
+        }
+
+         --- MANEJO DE MODALES ---
+        function openHelpModal(sectionKey) {
+            const data = helpContent[sectionKey];
+            if (!data) return;
+
+            document.getElementById('modal-title').innerText = data.title;
+            document.getElementById('modal-content').innerHTML = data.html;
+            
+             Cambiar icono del modal
+            const iconElem = document.getElementById('modal-icon');
+            iconElem.setAttribute('data-lucide', data.icon);
+            
+            document.getElementById('help-modal').classList.remove('hidden');
+            lucide.createIcons();
+        }
+
+        function closeHelpModal() {
+            document.getElementById('help-modal').classList.add('hidden');
+        }
+
+        function startGame() {
+            document.getElementById('welcome-screen').classList.add('hidden');
+            document.getElementById('game-area').classList.remove('hidden');
+            currentLevelIndex = 0;
+            score = 0;
+            loadLevel(currentLevelIndex);
+        }
+
+         --- CARGAR NIVEL ---
+        function loadLevel(levelIdx) {
+            const level = levels[levelIdx];
+            currentStep = 1;
+            ftthValidated = false;
+            isLaserSuccess = false;
+            isFusionComplete = false;
+            identifiedAnomaly = false;
+
+             Actualizar textos básicos
+            document.getElementById('level-display').innerText = level.name;
+            document.getElementById('score-display').innerText = score +  pts;
+            document.getElementById('mission-title').innerText = level.title;
+            document.getElementById('mission-desc').innerText = level.desc;
+            
+            document.getElementById('tip-title').innerText = level.tips.title;
+            document.getElementById('tip-desc').innerText = level.tips.desc;
+
+             Configurar etapa 1 (FTTH)
+            document.getElementById('input-olt-power').value = 5;
+            document.getElementById('val-enlace-dist').innerText = level.distance +  km;
+
+             Selección por defecto adecuada según nivel para FDT y NAP
+            selectFDTSplitter(level.perfectFDTRatio, level.perfectFDTLoss);
+            selectNAPSplitter(level.perfectNAPRatio, level.perfectNAPLoss);
+
+            showScreen('screen-ftth');
+            updateStepsUI();
+            updateFTTHevaluation();
+        }
+
+         --- MANEJO DE PANTALLAS ---
+        function showScreen(screenId) {
+            const screens = ['screen-ftth', 'screen-laser', 'screen-fusion', 'screen-otdr', 'screen-success', 'screen-gameover'];
+            screens.forEach(s = {
+                document.getElementById(s).classList.add('hidden');
+            });
+            document.getElementById(screenId).classList.remove('hidden');
+        }
+
+        function updateStepsUI() {
+            for (let i = 1; i = 4; i++) {
+                const btn = document.getElementById(`step-btn-${i}`);
+                const num = btn.querySelector('.step-num');
+                
+                if (i === currentStep) {
+                    btn.className = flex items-center gap-3 p-2.5 rounded-xl border border-indigo-500 bg-indigo-5070 darkbg-indigo-95020 text-indigo-950 darktext-white transition-all;
+                    num.className = step-num w-6 h-6 rounded-full bg-indigo-600 text-white flex items-center justify-center text-xs font-bold ring-2 ring-indigo-40050;
+                } else if (i  currentStep) {
+                    btn.className = flex items-center gap-3 p-2.5 rounded-xl border border-emerald-50020 bg-emerald-50 darkbg-emerald-95010 text-emerald-600 darktext-emerald-400 transition-all;
+                    num.className = step-num w-6 h-6 rounded-full bg-emerald-600 text-white flex items-center justify-center text-xs font-bold;
+                } else {
+                    btn.className = flex items-center gap-3 p-2.5 rounded-xl border border-slate-200 darkborder-slate-800 bg-slate-50 darkbg-slate-95020 text-slate-400 darktext-slate-600 transition-all;
+                    num.className = step-num w-6 h-6 rounded-full bg-slate-200 darkbg-slate-800 flex items-center justify-center text-xs font-bold;
+                }
+            }
+        }
+
+         --- ETAPA 1 FTTH CON CO-DIVISION (FDT & NAP) ---
+         Se encarga de evaluar las pérdidas de potencia óptica combinadas
+        function selectFDTSplitter(ratio, loss) {
+            selectedFDTRatio = ratio;
+            selectedFDTLoss = loss;
+
+            const ratios = [1, 2, 4, 8];
+            ratios.forEach(r = {
+                const btn = document.getElementById(`fdt-btn-${r}`);
+                if (r === ratio) {
+                    btn.className = p-2 border border-indigo-500 rounded-xl text-[11px] bg-indigo-50 darkbg-indigo-95050 text-indigo-600 darktext-indigo-300 font-bold shadow-sm shadow-indigo-50010;
+                } else {
+                    btn.className = p-2 border border-slate-200 darkborder-slate-800 rounded-xl text-[11px] text-slate-700 darktext-slate-300 hoverborder-indigo-500 bg-white darkbg-slate-900 transition-all font-semibold;
+                }
+            });
+
+            const textFDT = ratio === 1  Directo  `FDT 1${ratio}`;
+            document.getElementById('diag-fdt').innerText = textFDT;
+            document.getElementById('val-loss-fdt').innerText = `-${loss.toFixed(2)} dB`;
+            updateFTTHevaluation();
+        }
+
+        function selectNAPSplitter(ratio, loss) {
+            selectedNAPRatio = ratio;
+            selectedNAPLoss = loss;
+
+            const ratios = [4, 8, 16];
+            ratios.forEach(r = {
+                const btn = document.getElementById(`nap-btn-${r}`);
+                if (r === ratio) {
+                    btn.className = p-2 border border-purple-500 rounded-xl text-[11px] bg-purple-50 darkbg-purple-95050 text-purple-600 darktext-purple-300 font-bold shadow-sm shadow-purple-50010;
+                } else {
+                    btn.className = p-2 border border-slate-200 darkborder-slate-800 rounded-xl text-[11px] text-slate-700 darktext-slate-300 hoverborder-purple-500 bg-white darkbg-slate-900 transition-all font-semibold;
+                }
+            });
+
+            document.getElementById('diag-nap').innerText = `NAP 1${ratio}`;
+            document.getElementById('val-loss-nap').innerText = `-${loss.toFixed(2)} dB`;
+            updateFTTHevaluation();
+        }
+
+        function updateFTTHevaluation() {
+            const level = levels[currentLevelIndex];
+            const oltPower = parseFloat(document.getElementById('input-olt-power').value);
+            document.getElementById('val-olt-power').innerText = `+${oltPower} dBm`;
+
+            const cableLoss = level.distance  0.35;
+            document.getElementById('val-loss-cable').innerText = `-${cableLoss.toFixed(2)} dB`;
+
+            const totalSplittingLoss = selectedFDTLoss + selectedNAPLoss;
+            const connectionLoss = 0.8; 
+            const totalLoss = totalSplittingLoss + cableLoss + connectionLoss;
+            finalCalculatedPower = oltPower - totalLoss;
+
+            document.getElementById('val-final-power').innerText = `${finalCalculatedPower.toFixed(2)} dBm`;
+
+            const badge = document.getElementById('ftth-status-badge');
+            const nextBtn = document.getElementById('ftth-next-btn');
+
+            if (finalCalculatedPower  -15) {
+                badge.className = mt-2 text-center text-[11px] font-bold py-1 px-3 rounded-full bg-rose-100 darkbg-rose-95040 border border-rose-50030 text-rose-600 darktext-rose-400;
+                badge.innerText = 🚨 SEÑAL MUY ALTA (Saturación de puerto en la ONT);
+                nextBtn.disabled = true;
+                ftthValidated = false;
+            } else if (finalCalculatedPower  -27) {
+                badge.className = mt-2 text-center text-[11px] font-bold py-1 px-3 rounded-full bg-rose-100 darkbg-rose-95040 border border-rose-50030 text-rose-600 darktext-rose-400;
+                badge.innerText = 🚨 SEÑAL MUY BAJA (Presupuesto óptico insuficiente);
+                nextBtn.disabled = true;
+                ftthValidated = false;
+            } else {
+                badge.className = mt-2 text-center text-[11px] font-bold py-1 px-3 rounded-full bg-emerald-100 darkbg-emerald-95040 border border-emerald-50030 text-emerald-600 darktext-emerald-400;
+                badge.innerText = ✓ SEÑAL EXCELENTE (En rango de receptor ONT);
+                nextBtn.disabled = false;
+                ftthValidated = true;
+            }
+        }
+
+        function submitFTTHStep() {
+            if (!ftthValidated) return;
+            score += 200;
+            currentStep = 2;
+            updateStepsUI();
+            showScreen('screen-laser');
+            
+            document.getElementById('laser-angle').value = 20;
+            setTimeout(() = {
+                initLaserCanvas();
+            }, 100);
+        }
+
+         --- ETAPA 2 EL CAMINO DE LA LUZ (LÁSER) ---
+        let laserCtx = null;
+        let laserCanvasElement = null;
+
+        function initLaserCanvas() {
+            laserCanvasElement = document.getElementById('laserCanvas');
+            laserCtx = laserCanvasElement.getContext('2d');
+            
+            const rect = laserCanvasElement.getBoundingClientRect();
+            laserCanvasElement.width = rect.width;
+            laserCanvasElement.height = rect.height;
+
+            drawLaserPath();
+        }
+
+        function drawLaserPath() {
+            if (!laserCtx) return;
+            const w = laserCanvasElement.width;
+            const h = laserCanvasElement.height;
+            const level = levels[currentLevelIndex];
+
+            laserCtx.clearRect(0, 0, w, h);
+
+             Revestimiento de la fibra (Paredes externas)
+            laserCtx.fillStyle = '#1e293b';
+            laserCtx.fillRect(0, 0, w, 25);
+            laserCtx.fillRect(0, h - 25, w, 25);
+
+             Guía central del Core
+            laserCtx.strokeStyle = 'rgba(99, 102, 241, 0.2)';
+            laserCtx.lineWidth = 1;
+            laserCtx.beginPath();
+            laserCtx.moveTo(0, h2);
+            laserCtx.lineTo(w, h2);
+            laserCtx.stroke();
+
+            const angleVal = parseInt(document.getElementById('laser-angle').value);
+            document.getElementById('laser-angle-val').innerText = `${angleVal}°`;
+
+            let x = 15;
+            let y = h  2;
+            const rad = angleVal  Math.PI  180;
+            let dy = Math.sin(rad)  6;
+            let dx = Math.cos(rad)  6;
+            let rebounds = 0;
+            const pathPoints = [{x x, y y}];
+
+            const limitTop = 25;
+            const limitBottom = h - 25;
+
+            while (x  w - 20) {
+                x += dx;
+                y += dy;
+
+                if (y = limitTop) {
+                    y = limitTop;
+                    dy = -dy; 
+                    rebounds++;
+                } else if (y = limitBottom) {
+                    y = limitBottom;
+                    dy = -dy; 
+                    rebounds++;
+                }
+                pathPoints.push({x x, y y});
+            }
+
+            laserCtx.beginPath();
+            laserCtx.moveTo(pathPoints[0].x, pathPoints[0].y);
+            for (let i = 1; i  pathPoints.length; i++) {
+                laserCtx.lineTo(pathPoints[i].x, pathPoints[i].y);
+            }
+            
+            const ideal = level.laserAngleIdeal;
+            const deviation = Math.abs(angleVal - ideal);
+            laserLoss = (rebounds  0.15) + (deviation  0.1);
+
+            document.getElementById('laser-rebounds').innerText = rebounds;
+            document.getElementById('laser-loss').innerText = `${laserLoss.toFixed(2)} dB`;
+
+            let laserColor = 'rgba(239, 68, 68, 0.85)';
+            isLaserSuccess = false;
+
+            if (laserLoss = 1.5) {
+                laserColor = 'rgba(16, 185, 129, 0.9)';
+                isLaserSuccess = true;
+                document.getElementById('laser-loss').className = font-bold text-emerald-500;
+            } else if (laserLoss = 3.0) {
+                laserColor = 'rgba(245, 158, 11, 0.85)';
+                isLaserSuccess = true;
+                document.getElementById('laser-loss').className = font-bold text-amber-500;
+            } else {
+                document.getElementById('laser-loss').className = font-bold text-rose-500;
+            }
+
+            laserCtx.strokeStyle = laserColor;
+            laserCtx.lineWidth = 3;
+            laserCtx.lineCap = 'round';
+            laserCtx.lineJoin = 'round';
+            laserCtx.shadowBlur = 10;
+            laserCtx.shadowColor = laserColor;
+            laserCtx.stroke();
+            laserCtx.shadowBlur = 0;
+
+            laserCtx.fillStyle = '#6366f1';
+            laserCtx.beginPath();
+            laserCtx.arc(15, h2, 6, 0, Math.PI  2);
+            laserCtx.fill();
+
+            laserCtx.fillStyle = isLaserSuccess  '#10b981'  '#f59e0b';
+            laserCtx.beginPath();
+            laserCtx.arc(w - 15, h2, 6, 0, Math.PI  2);
+            laserCtx.fill();
+        }
+
+        function submitLaserStep() {
+            if (!isLaserSuccess) {
+                alert(La pérdida es excesiva debido a múltiples rebotes de luz. Ajusta el ángulo del láser para garantizar Reflexión Total Interna.);
+                return;
+            }
+
+            score += 250;
+            currentStep = 3;
+            updateStepsUI();
+            showScreen('screen-fusion');
+            initFusionStage();
+        }
+
+         --- ETAPA 3 FUSIÓN DE NÚCLEO (ALINEACIÓN) ---
+        function initFusionStage() {
+            const level = levels[currentLevelIndex];
+            
+            fiberOffsetY = level.fusionTargetY  3.5; 
+            cleaverAngle = +(0.1 + (Math.random()  0.4)).toFixed(2);
+            isFusionComplete = false;
+
+            document.getElementById('movable-fiber').style.transform = `translateY(${fiberOffsetY}px)`;
+            document.getElementById('electric-arc').classList.add('hidden');
+            document.getElementById('fusion-next-btn').disabled = true;
+            document.getElementById('btn-fire-fusion').disabled = false;
+            
+            updateFusionTelemetry();
+        }
+
+        function adjustFiberY(direction) {
+            fiberOffsetY += (direction  2);
+            
+            if (fiberOffsetY  -20) fiberOffsetY = -20;
+            if (fiberOffsetY  20) fiberOffsetY = 20;
+
+            document.getElementById('movable-fiber').style.transform = `translateY(${fiberOffsetY}px)`;
+            updateFusionTelemetry();
+        }
+
+        function updateFusionTelemetry() {
+            const offsetMicro = Math.abs(fiberOffsetY  3.5).toFixed(2);
+            document.getElementById('lbl-ajuste-y').innerText = `${fiberOffsetY}px`;
+            document.getElementById('txt-offset-y').innerText = `${offsetMicro} µm`;
+
+            const calculatedLoss = (parseFloat(offsetMicro)  0.4) + (cleaverAngle  0.2);
+            document.getElementById('txt-loss-estimate').innerText = `${calculatedLoss.toFixed(2)} dB`;
+
+            const lossElem = document.getElementById('txt-loss-estimate');
+            if (calculatedLoss = 0.15) {
+                lossElem.className = font-bold text-emerald-500;
+            } else if (calculatedLoss = 0.30) {
+                lossElem.className = font-bold text-amber-500;
+            } else {
+                lossElem.className = font-bold text-rose-500;
+            }
+
+            const offsetYText = document.getElementById('txt-offset-y');
+            offsetYText.className = parseFloat(offsetMicro) === 0  font-bold text-emerald-500  font-bold text-slate-700 darktext-slate-300;
+        }
+
+        function triggerElectricArc() {
+            const arc = document.getElementById('electric-arc');
+            arc.classList.remove('hidden');
+            
+            setTimeout(() = {
+                arc.classList.add('hidden');
+                
+                const offsetMicro = Math.abs(fiberOffsetY  3.5);
+                const totalLoss = (offsetMicro  0.4) + (cleaverAngle  0.2);
+
+                if (totalLoss = 0.30) {
+                    isFusionComplete = true;
+                    document.getElementById('fusion-next-btn').disabled = false;
+                    document.getElementById('btn-fire-fusion').disabled = true;
+                    
+                    document.getElementById('txt-loss-estimate').innerText = `${totalLoss.toFixed(2)} dB (FUSIONADO)`;
+                    document.getElementById('txt-loss-estimate').className = font-bold text-emerald-500;
+                } else {
+                    alert(`Arco fallido. La desalineación es de ${offsetMicro.toFixed(2)} µm y genera una pérdida de ${totalLoss.toFixed(2)} dB. Debe alinear mejor el núcleo de silicio antes de soldar.`);
+                }
+            }, 1200);
+        }
+
+        function submitFusionStep() {
+            if (!isFusionComplete) return;
+
+            score += 300;
+            currentStep = 4;
+            updateStepsUI();
+            showScreen('screen-otdr');
+            initOTDRStage();
+        }
+
+         --- ETAPA 4 INSPECTOR OTDR ---
+        let otdrCtx = null;
+        let otdrCanvasElement = null;
+
+        function initOTDRStage() {
+            otdrCanvasElement = document.getElementById('otdrCanvas');
+            otdrCtx = otdrCanvasElement.getContext('2d');
+            identifiedAnomaly = false;
+
+            document.getElementById('otdr-next-btn').disabled = true;
+            document.getElementById('otdr-event-detected').innerText = Selecciona el punto de caída en la gráfica;
+            document.getElementById('otdr-event-detected').className = text-amber-500 font-bold mt-1;
+            document.getElementById('otdr-feedback').innerText = ;
+
+            const level = levels[currentLevelIndex];
+            document.getElementById('otdr-max-dist').innerText = `${(level.distance  1.5).toFixed(1)} km`;
+
+            const rect = otdrCanvasElement.getBoundingClientRect();
+            otdrCanvasElement.width = rect.width;
+            otdrCanvasElement.height = rect.height;
+
+            drawOTDRGraph();
+            otdrCanvasElement.onclick = handleOTDRClick;
+        }
+
+        function drawOTDRGraph() {
+            if (!otdrCtx) return;
+            const w = otdrCanvasElement.width;
+            const h = otdrCanvasElement.height;
+            const level = levels[currentLevelIndex];
+
+            otdrCtx.fillStyle = '#090d16';
+            otdrCtx.fillRect(0, 0, w, h);
+
+            otdrCtx.strokeStyle = 'rgba(30, 41, 59, 0.4)';
+            otdrCtx.lineWidth = 1;
+            
+            for (let y = 20; y  h; y += 30) {
+                otdrCtx.beginPath();
+                otdrCtx.moveTo(0, y);
+                otdrCtx.lineTo(w, y);
+                otdrCtx.stroke();
+            }
+            for (let x = 40; x  w; x += 50) {
+                otdrCtx.beginPath();
+                otdrCtx.moveTo(x, 0);
+                otdrCtx.lineTo(x, h);
+                otdrCtx.stroke();
+            }
+
+            otdrCtx.strokeStyle = '#38bdf8';
+            otdrCtx.lineWidth = 2.5;
+            otdrCtx.beginPath();
+
+            let currentX = 15;
+            let currentY = 40;
+            otdrCtx.moveTo(currentX, currentY);
+
+            otdrCtx.lineTo(30, 20);
+            otdrCtx.lineTo(40, 50);
+            currentX = 40;
+            currentY = 50;
+
+            const maxDistance = level.distance  1.5;
+            const anomalyRatio = level.otdrAnomalousKm  maxDistance;
+            otdrTargetX = Math.floor(anomalyRatio  (w - 80)) + 40;
+
+            const stepToAnomaly = otdrTargetX - currentX;
+            currentY += (stepToAnomaly  0.15);
+            otdrCtx.lineTo(otdrTargetX, currentY);
+
+            currentY += 60; 
+            otdrCtx.lineTo(otdrTargetX + 5, currentY);
+            
+            otdrCtx.lineTo(otdrTargetX + 10, currentY - 15);
+            otdrCtx.lineTo(otdrTargetX + 15, currentY);
+            currentX = otdrTargetX + 15;
+
+            const stepToEnd = (w - 30) - currentX;
+            currentY += (stepToEnd  0.15);
+            otdrCtx.lineTo(w - 30, currentY);
+
+            otdrCtx.lineTo(w - 30, h - 20);
+            otdrCtx.lineTo(w, h - 20);
+
+            otdrCtx.stroke();
+        }
+
+        function handleOTDRClick(event) {
+            const rect = otdrCanvasElement.getBoundingClientRect();
+            const clickX = (event.clientX - rect.left)  (otdrCanvasElement.width  rect.width);
+            const clickY = (event.clientY - rect.top)  (otdrCanvasElement.height  rect.height);
+            
+            const level = levels[currentLevelIndex];
+            const maxDistance = level.distance  1.5;
+            const tolerance = 20;
+
+            if (Math.abs(clickX - otdrTargetX) = tolerance) {
+                identifiedAnomaly = true;
+                const kmCalculado = (level.otdrAnomalousKm).toFixed(2);
+                
+                document.getElementById('otdr-event-detected').innerText = `¡Anomalía Encontrada a los ${kmCalculado} km!`;
+                document.getElementById('otdr-event-detected').className = text-emerald-500 font-bold mt-1;
+                document.getElementById('otdr-feedback').innerHTML = span class='text-emerald-500'✓ Confirmadospan Atenuación por macrocurvatura severa identificada en la canaleta subterránea. Enviando equipo de empalme.;
+                document.getElementById('otdr-next-btn').disabled = false;
+
+                drawOTDRGraph();
+                otdrCtx.strokeStyle = '#10b981';
+                otdrCtx.lineWidth = 2;
+                otdrCtx.beginPath();
+                otdrCtx.arc(otdrTargetX, clickY, 15, 0, Math.PI  2);
+                otdrCtx.stroke();
+            } else {
+                const clickKm = ((clickX - 40)  (otdrCanvasElement.width - 80)  maxDistance).toFixed(2);
+                if (clickKm  0 && clickKm  maxDistance) {
+                    document.getElementById('otdr-feedback').innerHTML = `span class='text-rose-500'✗ Lectura erróneaspan En los km ${clickKm} la señal es estable. Busca la caída más pronunciada del gráfico.`;
+                }
+            }
+        }
+
+        function submitOTDRStep() {
+            if (!identifiedAnomaly) return;
+
+            score += 350;
+            showLevelSuccessScreen();
+        }
+
+         --- SUB-PANTALLA ÉXITO DE NIVEL ---
+        function showLevelSuccessScreen() {
+            showScreen('screen-success');
+            
+            const level = levels[currentLevelIndex];
+            document.getElementById('success-level-name').innerText = level.name;
+            document.getElementById('success-points-added').innerText = `+${level.points} Pts`;
+
+            if (currentLevelIndex === 0) {
+                document.getElementById('success-message').innerText = Fabuloso trabajo. Has conectado la primera casa familiar optimizando el presupuesto de potencia de doble división, controlando el radio de curvatura, alineando de manera óptima el núcleo en la fusión y resolviendo el primer evento de OTDR.;
+            } else if (currentLevelIndex === 1) {
+                document.getElementById('success-message').innerText = ¡Excelente habilidad técnica! Lograste configurar la topología PON de un edificio residencial completo a pesar de las altas pérdidas de potencia provocadas por los splitters FDT y NAP en cascada.;
+            } else {
+                document.getElementById('success-message').innerText = ¡Increíble! Lograste estabilizar la red troncal de interconexión Migtel superando el reto de alineación de alta atenuación de fibra monomodo.;
+            }
+
+            const nextActionBtn = document.getElementById('success-next-action-btn');
+            if (currentLevelIndex = levels.length - 1) {
+                nextActionBtn.innerText = Ver Calificación Final;
+                nextActionBtn.onclick = showGameOverScreen;
+            } else {
+                nextActionBtn.innerText = Siguiente Misión de Migtel;
+                nextActionBtn.onclick = nextLevel;
+            }
+        }
+
+        function nextLevel() {
+            currentLevelIndex++;
+            if (currentLevelIndex  levels.length) {
+                loadLevel(currentLevelIndex);
+            } else {
+                showGameOverScreen();
+            }
+        }
+
+         --- FINAL DEL JUEGO COMPLETO ---
+        function showGameOverScreen() {
+            showScreen('screen-gameover');
+            document.getElementById('final-score-display').innerText = `${score} Pts`;
+        }
+
+        function restartEntireGame() {
+            startGame();
+        }
+    script
+body
+html
