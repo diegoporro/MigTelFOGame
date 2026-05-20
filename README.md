@@ -1,4 +1,4 @@
-⚡ **Migtel - Fibra Master v1.0**
+⚡ **Migtel - Fibra Master v1.0 | MigTel Labs***
 
 ¡Bienvenido al repositorio de Migtel: Fibra Master! Un juego web educativo e interactivo diseñado para capacitar a técnicos, ingenieros y estudiantes en los conceptos fundamentales y despliegue de redes de fibra óptica FTTH (GPON).
 
@@ -78,3 +78,14 @@ Dado que el juego es completamente autocontenido, no requiere de servidores loca
 **Clona el repositorio:**
 
 git clone [https://github.com/tu-usuario/migtel-fibra-master.git](https://github.com/tu-usuario/migtel-fibra-master.git)
+
+
+🏢 **Créditos**
+
+Desarrollado con pasión para el equipo de ingeniería y operaciones de MigTel.
+
+Soporte y Consultas: soporte@migtel.net.ve ; tecnologia@migtel.net.ve
+
+Tecnología de Simulación: MigTel Labs 2026
+
+_Nota:_ Este software es una herramienta didáctica de simulación lúdica independiente.
